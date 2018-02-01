@@ -17,7 +17,8 @@ class App extends Component {
       films: [],
       planets: [],
       people: [],
-      vehicles: []
+      vehicles: [],
+      favorites: [],
     }
   }
 
@@ -45,6 +46,8 @@ class App extends Component {
       case 'vehicles':
         data = await cleanVehicleData(result)
         break;
+      default:
+        //Error goes here
     }
 
     this.setState({ [request]: data })
