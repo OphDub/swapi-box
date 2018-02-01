@@ -9,9 +9,10 @@ const Main = () => {
   return(
     <main>
       <Switch>
-        <Route path="/people" component={People} />
-        <Route path="/planets" component={Planets} />
-        <Route path="/vehicles" component={Vehicles} />
+        <Route exact path="/" render={() => (<Welcome />)} />
+        <Route path="/people" render={() => (<People />)} />
+        <Route path="/planets" render={() => (<Planets />)} />
+        <Route path="/vehicles" render={() => (<Vehicles />)} />
       </Switch>
     </main>
 
