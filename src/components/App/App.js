@@ -30,9 +30,10 @@ class App extends Component {
   getData = async (request) => {
     const url = `https://swapi.co/api/${request}/`
     const thing = await fetch(url)
-    const response = await thing.json();
+    const response = await thing.json()
+    const people = await cleanPeopleData(response)
 
-    console.log(response)
+    this.setState({ people })
   }
 
   componentDidMount() {

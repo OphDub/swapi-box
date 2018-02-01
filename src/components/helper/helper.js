@@ -9,34 +9,39 @@ export const cleanFilmData = (filmData) => {
 }
 
 const getHomeworldData = async (url) => {
-  // console.log('homeworld', url)
   const initialFetch = await fetch(url)
-  const homeworld = await initialFetch.json()
-  // console.log('homeworld', homeworld)
-  return { homeworld: homeworld.name, population: homeworld.population }
+  const homeworldObj = await initialFetch.json()
+
+  return {
+    homeworld: homeworldObj.name,
+    population: homeworldObj.population
+  }
 }
 
 const getSpeciesData = (urls) => {
-  // console.log('species', urls)
   const unresolvedPromises = urls.map(async (url) => {
     const initialFetch = await fetch(url)
     const species = await initialFetch.json()
-    // console.log('species', species)
-    return {species: species.name}
+
+    return species.name
   })
 
   return Promise.all(unresolvedPromises);
 }
 
 export const cleanPeopleData = (peopleData) => {
-  return peopleData.results.map((person) => {
-    const homeworld = getHomeworldData(person.homeworld)
-    const speciesTypes = getSpeciesData(person.species)
+  const people = peopleData.results.map( async (person) => {
+    const homeworld = await getHomeworldData(person.homeworld)
+    const speciesTypes = await getSpeciesData(person.species)
 
-    return {
+    const thing = {
       name: person.name,
       ...homeworld,
-      species: [speciesTypes]
+      species: speciesTypes
     }
+
+    return thing;
   })
+
+  return Promise.all(people);
 }
