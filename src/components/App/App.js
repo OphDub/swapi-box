@@ -30,24 +30,7 @@ class App extends Component {
   }
 
   getData = async (request) => {
-    const url = `https://swapi.co/api/${request}/`
-    const response = await fetch(url)
-    const result = await response.json()
-    let data
-
-    switch(request) {
-      case 'people':
-        data = await cleanPeopleData(result)
-        break;
-      case 'planets':
-        data = await cleanPlanetData(result)
-        break;
-      case 'vehicles':
-        data = await cleanVehicleData(result)
-        break;
-      default:
-        //Error goes here
-    }
+    const data = await apiGet(request)
 
     this.setState({ [request]: data })
   }
@@ -62,8 +45,8 @@ class App extends Component {
         <header>
           <h1>SWAPI BOX</h1>
         </header>
-        <Nav getData={this.getData}/>
-        <Main />
+        <Nav  getData={this.getData}/>
+        <Main film={this.state.films[0]}/>
       </div>
     );
   }
