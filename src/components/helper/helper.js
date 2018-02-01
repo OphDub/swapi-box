@@ -1,3 +1,37 @@
+const apiGet = async (request) => {
+  const url = `https://swapi.co/api/${request}/`
+  const response = await fetchAndParse(url)
+  let data
+
+  switch(request) {
+    case 'films':
+      data = await cleanFilmData(response)
+      break;
+    case 'people':
+      data = await cleanPeopleData(response)
+      break;
+    case 'planets':
+      data = await cleanPlanetData(response)
+      break;
+    case 'vehicles':
+      data = await cleanVehicleData(response)
+      break;
+    default:
+      console.log('Error!')
+  }
+  return data
+}
+
+const fetchAndParse = async (url) => {
+  const response = await fetch(url)
+
+  if(response.status >= 400) {
+    throw(new Error('Please wait fetching Star Wars facts'))
+  } else {
+    return await response.json()
+  }
+}
+
 const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
     return {
@@ -9,8 +43,7 @@ const cleanFilmData = (filmData) => {
 }
 
 const getHomeworldData = async (url) => {
-  const initialFetch = await fetch(url)
-  const homeworldObj = await initialFetch.json()
+  const homeworldObj = await fetchAndParse(url)
 
   return {
     homeworld: homeworldObj.name,
@@ -20,8 +53,7 @@ const getHomeworldData = async (url) => {
 
 const getSpeciesData = (urls) => {
   const unresolvedPromises = urls.map(async (url) => {
-    const initialFetch = await fetch(url)
-    const species = await initialFetch.json()
+    const species = await fetchAndParse(url)
 
     return species.name
   })
@@ -55,8 +87,7 @@ const cleanVehicleData = (vehicleData) => {
 
 const getPlanetResidents = (urls) => {
   const unresolvedPromises = urls.map( async (url) => {
-    const initialFetch = await fetch(url)
-    const resident = await initialFetch.json()
+    const resident = await fetchAndParse(url)
 
     return resident.name
   })
@@ -81,6 +112,8 @@ const cleanPlanetData = (planetData) => {
 }
 
 export {
+  apiGet,
+  fetchAndParse,
   cleanFilmData,
   cleanPeopleData,
   cleanVehicleData,
