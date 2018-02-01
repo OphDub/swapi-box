@@ -1,4 +1,4 @@
-export const cleanFilmData = (filmData) => {
+const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
     return {
       title: film.title,
@@ -28,7 +28,7 @@ const getSpeciesData = (urls) => {
   return Promise.all(unresolvedPromises);
 }
 
-export const cleanPeopleData = (peopleData) => {
+const cleanPeopleData = (peopleData) => {
   const people = peopleData.results.map( async (person) => {
     const homeworld = await getHomeworldData(person.homeworld)
     const speciesTypes = await getSpeciesData(person.species)
@@ -42,7 +42,7 @@ export const cleanPeopleData = (peopleData) => {
   return Promise.all(people);
 }
 
-export const cleanVehicleData = (vehicleData) => {
+const cleanVehicleData = (vehicleData) => {
   return vehicleData.results.map((vehicle) => {
     return {
       name: vehicle.name,
@@ -53,7 +53,7 @@ export const cleanVehicleData = (vehicleData) => {
   })
 }
 
-export const getPlanetResidents = (urls) => {
+const getPlanetResidents = (urls) => {
   const unresolvedPromises = urls.map( async (url) => {
     const initialFetch = await fetch(url)
     const resident = await initialFetch.json()
@@ -64,7 +64,7 @@ export const getPlanetResidents = (urls) => {
   return Promise.all(unresolvedPromises)
 }
 
-export const cleanPlanetData = (planetData) => {
+const cleanPlanetData = (planetData) => {
   const planets = planetData.results.map( async (planet) => {
     const residents = await getPlanetResidents(planet.residents)
 
@@ -78,4 +78,11 @@ export const cleanPlanetData = (planetData) => {
   })
 
   return Promise.all(planets)
+}
+
+export {
+  cleanFilmData,
+  cleanPeopleData,
+  cleanVehicleData,
+  cleanPlanetData,
 }
