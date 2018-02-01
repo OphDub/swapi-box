@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from '../Nav/Nav';
 import Main from '../Main/Main';
-import {
-  cleanFilmData,
-  cleanPeopleData,
-  cleanVehicleData,
-  cleanPlanetData
-} from '../helper/helper';
 import apiGet from '../api/api';
-
 
 class App extends Component {
   constructor(props) {
