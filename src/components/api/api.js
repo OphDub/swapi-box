@@ -7,8 +7,7 @@ import {
 
 const apiGet = async (request) => {
   const url = `https://swapi.co/api/${request}/`
-  const initialFetch = await fetch(url)
-  const response = await initialFetch.json()
+  const response = await fetchAndParse(url)
   let data
 
   switch(request) {
@@ -25,9 +24,14 @@ const apiGet = async (request) => {
       data = await cleanVehicleData(response)
       break;
     default:
-      //Error goes here
+      console.log('Error!')
   }
   return data
+}
+
+const fetchAndParse = async (url) => {
+  const initialFetch = await fetch(url)
+  return await initialFetch.json()
 }
 
 export default apiGet;
