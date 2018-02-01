@@ -8,6 +8,7 @@ import {
   cleanVehicleData,
   cleanPlanetData
 } from '../helper/helper';
+import apiGet from '../api/api';
 
 
 class App extends Component {
@@ -22,10 +23,8 @@ class App extends Component {
     }
   }
 
-  getFilmData = async (url) => {
-    const initialFetch = await fetch(url)
-    const uncleanedFilms = await initialFetch.json()
-    const films = cleanFilmData(uncleanedFilms)
+  getFilmData = async () => {
+    const films = await apiGet('films')
 
     this.setState({ films })
   }
@@ -54,10 +53,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const request = 'films'
-    const url = `https://swapi.co/api/${request}/`
-
-    this.getFilmData(url)
+    this.getFilmData()
   }
 
   render() {
