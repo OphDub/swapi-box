@@ -4,7 +4,9 @@ import Nav from '../Nav/Nav';
 import Main from '../Main/Main';
 import {
   cleanFilmData,
-  cleanPeopleData
+  cleanPeopleData,
+  cleanVehicleData,
+  cleanPlanetData
 } from '../helper/helper';
 
 
@@ -29,11 +31,23 @@ class App extends Component {
 
   getData = async (request) => {
     const url = `https://swapi.co/api/${request}/`
-    const thing = await fetch(url)
-    const response = await thing.json()
-    const people = await cleanPeopleData(response)
+    const response = await fetch(url)
+    const result = await response.json()
+    let data
 
-    this.setState({ people })
+    switch(request) {
+      case 'people':
+        data = await cleanPeopleData(result)
+        break;
+      case 'planets':
+        data = await cleanPlanetData(result)
+        break;
+      case 'vehicles':
+        data = await cleanVehicleData(result)
+        break;
+    }
+
+    this.setState({ [request]: data })
   }
 
   componentDidMount() {
