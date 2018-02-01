@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Welcome = () => {
+const Welcome = ( film ) => {
   return(
-    <div>
-      <h1>Welcome!</h1>
-    </div>
+    <article>
+      <h4>{film.crawl}</h4>
+      <h3>{film.title}</h3>
+      <h4>{film.releaseDate}</h4>
+    </article>
   )
 }
 

@@ -32,6 +32,34 @@ const fetchAndParse = async (url) => {
   }
 }
 
+const getFilmData = async () => {
+  const url = `https://swapi.co/api/films/`
+  const response = await fetchAndParse(url)
+
+  return await cleanFilmData(response)
+}
+
+const getPeopleData = async () => {
+  const url = `https://swapi.co/api/people/`
+  const response = await fetchAndParse(url)
+
+  return await cleanPeopleData(response)
+}
+
+const getPlanetsData = async () => {
+  const url = `https://swapi.co/api/planets/`
+  const response = await fetchAndParse(url)
+
+  return await cleanPlanetData(response)
+}
+
+const getVehicleData = async () => {
+  const url = `https://swapi.co/api/vehicles/`
+  const response = await fetchAndParse(url)
+
+  return await cleanVehicleData(response)
+}
+
 const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
     return {
