@@ -201,6 +201,6 @@ export const mockCleanVehicleData = [
     "name": "Sand Crawler", 
     "model": "Digger Crawler", 
     "passengers": "30", 
-    "vehicleClass": "wheeled", 
+    "class": "wheeled", 
   }
 ]

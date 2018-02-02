@@ -20,7 +20,7 @@ import {
 } from '../mock-data';
 
 describe('HELPER', () => {
-  describe('fetchAndParse', () => {
+  describe.skip('fetchAndParse', () => {
     it('calls fetch with the correct params', () => {
       const expectedParams = `https://swapi.co/api/films/`
 
@@ -53,8 +53,8 @@ describe('HELPER', () => {
     })
   })
 
-  describe('apiGET', () => {
-    it.skip('calls clean filmData when the string films is given to it', () => {
+  describe.skip('apiGET', () => {
+    it('calls clean filmData when the string films is given to it', () => {
       window.fetch = jest.fn().mockImplementation(() => ({
         status: 200,
         json: () => new Promise((resolve, reject) => {
@@ -71,7 +71,7 @@ describe('HELPER', () => {
       const cleanPeopleData = jest.fn()
     })
 
-    it.only('calls cleanVehicleData when the string vehicles is given to it', () => {
+    it('calls cleanVehicleData when the string vehicles is given to it', () => {
       const mockCall = jest.fn()
 
       window.fetch = jest.fn().mockImplementation(() => ({
@@ -115,18 +115,18 @@ describe('HELPER', () => {
     expect(result).resolves.toEqual(mockCleanPlanetData)
   })
 
-  it.skip('returns a residents array when status code is OK', () => {
-    const mockUrls = [
-      "https://swapi.co/api/people/5/",
-      "https://swapi.co/api/people/68/",
-      "https://swapi.co/api/people/81/"
-    ]
-    const mockResidents = [
-      "Leia Organa",
-      "Bail Prestor Organa",
-      "Raymus Antilles"
-    ]
+  // it.skip('returns a residents array when status code is OK', () => {
+  //   const mockUrls = [
+  //     "https://swapi.co/api/people/5/",
+  //     "https://swapi.co/api/people/68/",
+  //     "https://swapi.co/api/people/81/"
+  //   ]
+  //   const mockResidents = [
+  //     "Leia Organa",
+  //     "Bail Prestor Organa",
+  //     "Raymus Antilles"
+  //   ]
 
-    expect(getPlanetResidents(mockUrls)).resolves.toEqual(mockResidents)
-  })
+  //   expect(getPlanetResidents(mockUrls)).resolves.toEqual(mockResidents)
+  // })
 })
