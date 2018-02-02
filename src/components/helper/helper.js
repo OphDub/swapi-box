@@ -1,27 +1,3 @@
-const apiGet = async (request) => {
-  const url = `https://swapi.co/api/${request}/`
-  const response = await fetchAndParse(url)
-  let data
-
-  switch(request) {
-    case 'films':
-      data = await cleanFilmData(response)
-      break;
-    case 'people':
-      data = await cleanPeopleData(response)
-      break;
-    case 'planets':
-      data = await cleanPlanetData(response)
-      break;
-    case 'vehicles':
-      data = await cleanVehicleData(response)
-      break;
-    default:
-      console.log('Error!')
-  }
-  return data
-}
-
 const fetchAndParse = async (url) => {
   const response = await fetch(url)
 
@@ -108,7 +84,7 @@ const cleanVehicleData = (vehicleData) => {
       name: vehicle.name,
       model: vehicle.model,
       passengers: vehicle.passengers,
-      vehicleClass: vehicle.vehicle_class,
+      class: vehicle.vehicle_class,
     }
   })
 }
@@ -140,8 +116,6 @@ const cleanPlanetData = (planetData) => {
 }
 
 export {
-  apiGet,
-  fetchAndParse,
   getFilmsData,
   getPeopleData,
   getPlanetsData,
