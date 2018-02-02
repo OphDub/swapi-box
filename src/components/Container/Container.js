@@ -1,9 +1,29 @@
 import React from 'react';
+import Card from '../Card/Card';
 
+const Container = ({ type, data }) => {
+  let renderedCards
 
-const Container = () => {
+  if(!data) {
+    renderedCards = (
+      <div>
+        LOADING...
+      </div>
+    )
+  } else {
+    renderedCards = data.map((element, index) => {
+      return (
+        <Card element={element}
+              type={type}
+              key={`${Date.now()}${index}`} />
+      )
+    })
+  }
+
   return(
-    <div>Container</div>
+    <section className="card-container">
+      {renderedCards}
+    </section>
   )
 }
 
