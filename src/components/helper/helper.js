@@ -32,7 +32,7 @@ const fetchAndParse = async (url) => {
   }
 }
 
-const getFilmData = async () => {
+const getFilmsData = async () => {
   const url = `https://swapi.co/api/films/`
   const response = await fetchAndParse(url)
 
@@ -53,7 +53,7 @@ const getPlanetsData = async () => {
   return await cleanPlanetData(response)
 }
 
-const getVehicleData = async () => {
+const getVehiclesData = async () => {
   const url = `https://swapi.co/api/vehicles/`
   const response = await fetchAndParse(url)
 
@@ -142,6 +142,10 @@ const cleanPlanetData = (planetData) => {
 export {
   apiGet,
   fetchAndParse,
+  getFilmsData,
+  getPeopleData,
+  getPlanetsData,
+  getVehiclesData,
   cleanFilmData,
   cleanPeopleData,
   cleanVehicleData,
