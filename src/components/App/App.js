@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      film: [],
+      film: {},
       planets: [],
       people: [],
       vehicles: [],
@@ -23,10 +23,10 @@ class App extends Component {
   }
 
   getRandomFilmData = async () => {
-    const films = await this.getData('films')
+    const films = await apiGet('films');
     const randomNum = Math.floor(Math.random() * 7 + 1)
 
-    this.setState({ films })
+    this.setState({ film: films[randomNum] })
   }
 
   componentDidMount () {
