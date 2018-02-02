@@ -38,6 +38,7 @@ class App extends Component {
       <div className="app">
         <header>
           <h1>SWAPI BOX</h1>
+          <button>Favorites</button>
         </header>
         <Nav  getData={this.getData} />
         <Main film={this.state.film}
