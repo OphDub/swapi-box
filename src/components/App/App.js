@@ -37,14 +37,20 @@ class App extends Component {
     return (
       <div className="app">
         <header>
-          <h1>SWAPI BOX</h1>
-          <button>Favorites</button>
+          <h1 className="swapi-title">SWAPI BOX</h1>
+          <button className="faves">
+            <h3>
+              View Favorites
+            </h3>
+            {this.state.favorites.length}
+          </button>
         </header>
         <Nav  getData={this.getData} />
         <Main film={this.state.film}
               planets={this.state.planets}
               people={this.state.people}
-              vehicles={this.state.vehicles} />
+              vehicles={this.state.vehicles}
+              favorites={this.state.favorites} />
       </div>
     );
   }
