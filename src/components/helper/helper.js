@@ -14,16 +14,16 @@ const apiGet = async (request) => {
     default:
       console.log('Error!')
       break;
-  }
+  };
 }
 
 const fetchAndParse = async (url) => {
   const response = await fetch(url)
 
   if(response.status >= 400) {
-    throw(new Error('Please wait fetching Star Wars facts'))
+    throw(new Error('Please wait fetching Star Wars facts'));
   } else {
-    return await response.json()
+    return await response.json();
   }
 }
 
@@ -33,17 +33,17 @@ const cleanFilmData = (filmData) => {
       title: film.title,
       crawl: film.opening_crawl,
       releaseDate: film.release_date,
-    }
+    };
   })
 }
 
 const getHomeworldData = async (url) => {
-  const homeworldObj = await fetchAndParse(url)
+  const homeworldObj = await fetchAndParse(url);
 
   return {
     homeworld: homeworldObj.name,
     population: homeworldObj.population,
-  }
+  };
 }
 
 const getNameData = (urls) => {
@@ -57,14 +57,14 @@ const getNameData = (urls) => {
 
 const cleanPeopleData = (peopleData) => {
   const people = peopleData.results.map( async (person) => {
-    const homeworld = await getHomeworldData(person.homeworld)
-    const speciesTypes = await getNameData(person.species)
+    const homeworld = await getHomeworldData(person.homeworld);
+    const speciesTypes = await getNameData(person.species);
 
     return {
       name: person.name,
       ...homeworld,
       species: speciesTypes,
-    }
+    };
   })
   return Promise.all(people);
 }
@@ -76,13 +76,13 @@ const cleanVehicleData = (vehicleData) => {
       model: vehicle.model,
       passengers: vehicle.passengers,
       class: vehicle.vehicle_class,
-    }
+    };
   })
 }
 
 const cleanPlanetData = (planetData) => {
   const planets = planetData.results.map( async (planet) => {
-    const residents = await getNameData(planet.residents)
+    const residents = await getNameData(planet.residents);
 
     return {
       name: planet.name,
@@ -90,10 +90,10 @@ const cleanPlanetData = (planetData) => {
       terrain: planet.terrain,
       population: planet.population,
       residents: residents,
-    }
+    };
   })
 
-  return Promise.all(planets)
+  return Promise.all(planets);
 }
 
 export {
@@ -102,4 +102,4 @@ export {
   cleanPeopleData,
   cleanVehicleData,
   cleanPlanetData,
-}
+};

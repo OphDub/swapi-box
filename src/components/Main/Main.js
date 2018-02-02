@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Welcome from '../Welcome/Welcome';
 import Container from '../Container/Container';
 
-const Main = ({ film, planets, people, vehicles }) => {
+const Main = ({ film, planets, people, vehicles, favorites }) => {
   return(
     <Switch>
       <Route exact path="/" render={() => (<Welcome film={film}/>)} />
