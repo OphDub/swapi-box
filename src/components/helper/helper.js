@@ -1,3 +1,25 @@
+const apiGet = async (request) => {
+  const url = `https://swapi.co/api/${request}/`
+  const response = await fetchAndParse(url)
+
+  switch(request) {
+    case 'films':
+      return await cleanFilmData(response)
+      break;
+    case 'people':
+      return await cleanPeopleData(response)
+      break;
+    case 'planets':
+      return await cleanPlanetData(response)
+      break;
+    case 'vehicles':
+      return await cleanVehicleData(response)
+      break;
+    default:
+      console.log('Error!')
+  }
+}
+
 const fetchAndParse = async (url) => {
   const response = await fetch(url)
 
@@ -8,33 +30,33 @@ const fetchAndParse = async (url) => {
   }
 }
 
-const getFilmsData = async () => {
-  const url = `https://swapi.co/api/films/`
-  const response = await fetchAndParse(url)
+// const getFilmsData = async () => {
+//   const url = `https://swapi.co/api/films/`
+//   const response = await fetchAndParse(url)
 
-  return await cleanFilmData(response)
-}
+//   return await cleanFilmData(response)
+// }
 
-const getPeopleData = async () => {
-  const url = `https://swapi.co/api/people/`
-  const response = await fetchAndParse(url)
+// const getPeopleData = async () => {
+//   const url = `https://swapi.co/api/people/`
+//   const response = await fetchAndParse(url)
 
-  return await cleanPeopleData(response)
-}
+//   return await cleanPeopleData(response)
+// }
 
-const getPlanetsData = async () => {
-  const url = `https://swapi.co/api/planets/`
-  const response = await fetchAndParse(url)
+// const getPlanetsData = async () => {
+//   const url = `https://swapi.co/api/planets/`
+//   const response = await fetchAndParse(url)
 
-  return await cleanPlanetData(response)
-}
+//   return await cleanPlanetData(response)
+// }
 
-const getVehiclesData = async () => {
-  const url = `https://swapi.co/api/vehicles/`
-  const response = await fetchAndParse(url)
+// const getVehiclesData = async () => {
+//   const url = `https://swapi.co/api/vehicles/`
+//   const response = await fetchAndParse(url)
 
-  return await cleanVehicleData(response)
-}
+//   return await cleanVehicleData(response)
+// }
 
 const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
@@ -116,6 +138,7 @@ const cleanPlanetData = (planetData) => {
 }
 
 export {
+  apiGet,
   getFilmsData,
   getPeopleData,
   getPlanetsData,

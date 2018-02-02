@@ -3,10 +3,11 @@ import './App.css';
 import Nav from '../Nav/Nav';
 import Main from '../Main/Main';
 import {
-  getFilmsData,
-  getPeopleData,
-  getPlanetsData,
-  getVehiclesData,
+  apiGet,
+  // getFilmsData,
+  // getPeopleData,
+  // getPlanetsData,
+  // getVehiclesData,
 } from '../helper/helper';
 
 class App extends Component {
@@ -19,6 +20,10 @@ class App extends Component {
       vehicles: [],
       favorites: [],
     }
+  }
+
+  getData = async () => {
+    
   }
 
   getRandomFilmData = async () => {
