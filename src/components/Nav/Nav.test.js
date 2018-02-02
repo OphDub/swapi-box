@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from './Container';
+import Nav from './Nav';
 
 it('renders without crashing', () => {
   // const div = document.createElement('div');

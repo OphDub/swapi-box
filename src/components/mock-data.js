@@ -111,9 +111,9 @@ export const mockCleanPlanetData = [
     "terrain": "grasslands, mountains", 
     "population": "2000000000", 
     "residents": [
-      "Leia Organa", 
-      "Bail Prestor Organa", 
-      "Raymus Antilles"
+      undefined,
+      undefined,
+      undefined
     ]
   }
 ]
@@ -161,9 +161,9 @@ export const mockPeopleData = {
 export const mockCleanPeopleData = [
   {
     name: "Luke Skywalker",
-    homeworld: "Tatooine",
-    population: 200000,
-    species: "Human"
+    homeworld: undefined,
+    population: undefined,
+    species: [undefined],
   }
 ]
 

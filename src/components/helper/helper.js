@@ -1,31 +1,31 @@
 const apiGet = async (request) => {
-  const url = `https://swapi.co/api/${request}/`
-  const response = await fetchAndParse(url)
+  const url = `https://swapi.co/api/${request}/`;
+  const response = await fetchAndParse(url);
 
   switch(request) {
     case 'films':
-      return await cleanFilmData(response)
+      return await cleanFilmData(response);
     case 'people':
-      return await cleanPeopleData(response)
+      return await cleanPeopleData(response);
     case 'planets':
-      return await cleanPlanetData(response)
+      return await cleanPlanetData(response);
     case 'vehicles':
-      return await cleanVehicleData(response)
+      return await cleanVehicleData(response);
     default:
-      console.log('Error!')
+      console.log('Error!');
       break;
   };
-}
+};
 
 const fetchAndParse = async (url) => {
-  const response = await fetch(url)
+  const response = await fetch(url);
 
   if(response.status >= 400) {
     throw(new Error('Please wait fetching Star Wars facts'));
   } else {
     return await response.json();
-  }
-}
+  };
+};
 
 const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
@@ -34,8 +34,8 @@ const cleanFilmData = (filmData) => {
       crawl: film.opening_crawl,
       releaseDate: film.release_date,
     };
-  })
-}
+  });
+};
 
 const getHomeworldData = async (url) => {
   const homeworldObj = await fetchAndParse(url);
@@ -44,7 +44,7 @@ const getHomeworldData = async (url) => {
     homeworld: homeworldObj.name,
     population: homeworldObj.population,
   };
-}
+};
 
 const getNameData = (urls) => {
   const unresolvedPromises = urls.map(async (url) => {
@@ -67,7 +67,7 @@ const cleanPeopleData = (peopleData) => {
     };
   })
   return Promise.all(people);
-}
+};
 
 const cleanVehicleData = (vehicleData) => {
   return vehicleData.results.map((vehicle) => {
@@ -78,7 +78,7 @@ const cleanVehicleData = (vehicleData) => {
       class: vehicle.vehicle_class,
     };
   })
-}
+};
 
 const cleanPlanetData = (planetData) => {
   const planets = planetData.results.map( async (planet) => {
@@ -91,13 +91,14 @@ const cleanPlanetData = (planetData) => {
       population: planet.population,
       residents: residents,
     };
-  })
+  });
 
   return Promise.all(planets);
-}
+};
 
 export {
   apiGet,
+  fetchAndParse,
   cleanFilmData,
   cleanPeopleData,
   cleanVehicleData,

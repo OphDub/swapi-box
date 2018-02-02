@@ -5,7 +5,7 @@ import {
   cleanPeopleData,
   cleanVehicleData,
   cleanPlanetData,
-  getPlanetResidents,
+  getNameData,
 } from './helper.js';
 
 import {
@@ -20,7 +20,7 @@ import {
 } from '../mock-data';
 
 describe('HELPER', () => {
-  describe.skip('fetchAndParse', () => {
+  describe('fetchAndParse', () => {
     it('calls fetch with the correct params', () => {
       const expectedParams = `https://swapi.co/api/films/`
 
@@ -29,104 +29,107 @@ describe('HELPER', () => {
         json: () => new Promise((resolve, reject) => {
           resolve(mockFilmData)
         })
-      }))
+      }));
 
-      fetchAndParse(expectedParams)
+      fetchAndParse(expectedParams);
 
       expect(window.fetch).toHaveBeenCalledWith(expectedParams);
-    })
+    });
 
     it('returns an object when status code is OK', () => {
-      const mockRequest = `https://swapi.co/api/films/`
+      const mockRequest = `https://swapi.co/api/films/`;
 
-      expect(fetchAndParse(mockRequest)).resolves.toEqual(mockFilmData)
-    })
+      expect(fetchAndParse(mockRequest)).resolves.toEqual(mockFilmData);
+    });
 
     it('returns an error when status code is not OK', () => {
-      const mockRequest = `https://swapi.co/api/films/`
+      const mockRequest = `https://swapi.co/api/films/`;
 
       window.fetch = jest.fn().mockImplementation(() => ({
         status: 500,
-      }))
+      }));
 
-      expect(fetchAndParse(mockRequest)).rejects.toEqual(Error('Please wait fetching Star Wars facts'))
-    })
-  })
+      expect(fetchAndParse(mockRequest)).rejects.toEqual(Error('Please wait fetching Star Wars facts'));
+    });
+  });
 
-  describe.skip('apiGET', () => {
-    it('calls clean filmData when the string films is given to it', () => {
+  describe('apiGET', () => {
+    it('returns an array of cleaned filmData when given the string films', async () => {
       window.fetch = jest.fn().mockImplementation(() => ({
         status: 200,
         json: () => new Promise((resolve, reject) => {
           resolve(mockFilmData)
         })
-      }))
+      }));
 
-      const result = apiGet('films')
+      const result = await apiGet('films');
 
       expect(result).toEqual(mockCleanFilmData);
-    })
+    });
 
-    it('returns cleanPeopleData when the string people is given to it', () => {
-      const cleanPeopleData = jest.fn()
-    })
+    it('returns an array of cleaned peopleData when given the string people', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockPeopleData)
+        })
+      }));
 
-    it('calls cleanVehicleData when the string vehicles is given to it', () => {
-      const mockCall = jest.fn()
+      const result = await apiGet('people');
 
+      expect(result).toEqual(mockCleanPeopleData);
+    });
+
+    it('returns an array of cleaned vehicleData when given the string vehicles', async () => {
       window.fetch = jest.fn().mockImplementation(() => ({
         status: 200,
         json: () => new Promise((resolve, reject) => {
           resolve(mockVehicleData)
         })
-      }))
+      }));
 
-      apiGet(mockCall)
+      const result = await apiGet('vehicles');
 
-      expect(mockCall).toHaveBeenCalled()
-    })
+      expect(result).toEqual(mockCleanVehicleData);
+    });
 
-    it('calls cleanPlanetData when the string planets is given to it', () => {
-      const cleanPlanetData = jest.fn()
-    })
-  })
+    it('returns an array of cleaned planetData when given the string planets', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise ((resolve, reject) => {
+          resolve(mockPlanetData)
+        })
+      }));
 
-  it('cleans the array of film data given to it', () => {
-    const result = cleanFilmData(mockFilmData)
+      const result = await apiGet('planets');
 
-    expect(result).toEqual(mockCleanFilmData)
-  })
+      expect(result).toEqual(mockCleanPlanetData);
+    });
+  });
 
-  it.skip('cleans the array of people data given to it', () => {
-    const result = cleanPeopleData(mockPeopleData)
+  describe('DATA CLEANERS', () => {
+    it('cleanFilmData - cleans the array of film data given to it', () => {
+      const result = cleanFilmData(mockFilmData);
 
-    expect(result).toEqual(mockCleanPeopleData)
-  })
+      expect(result).toEqual(mockCleanFilmData);
+    });
 
-  it('cleans the array of vehicle data given to it', () => {
-    const result = cleanVehicleData(mockVehicleData)
+    it.skip('cleanPeopleData - cleans the array of people data given to it', () => {
+      const result = cleanPeopleData(mockPeopleData);
 
-    expect(result).toEqual(mockCleanVehicleData)
-  })
+      expect(result).toEqual(mockCleanPeopleData);
+    });
 
-  it.skip('cleans the array of planet data given to it', () => {
-    const result = cleanPlanetData(mockPlanetData)
+    it('cleanVehicleData - cleans the array of vehicle data given to it', () => {
+      const result = cleanVehicleData(mockVehicleData);
 
-    expect(result).resolves.toEqual(mockCleanPlanetData)
-  })
+      expect(result).toEqual(mockCleanVehicleData);
+    });
 
-  // it.skip('returns a residents array when status code is OK', () => {
-  //   const mockUrls = [
-  //     "https://swapi.co/api/people/5/",
-  //     "https://swapi.co/api/people/68/",
-  //     "https://swapi.co/api/people/81/"
-  //   ]
-  //   const mockResidents = [
-  //     "Leia Organa",
-  //     "Bail Prestor Organa",
-  //     "Raymus Antilles"
-  //   ]
+    it.skip('cleanPlanetData - cleans the array of planet data given to it', () => {
+      const result = cleanPlanetData(mockPlanetData);
 
-  //   expect(getPlanetResidents(mockUrls)).resolves.toEqual(mockResidents)
-  // })
-})
+      expect(result).resolves.toEqual(mockCleanPlanetData);
+    });
+  });
+});
