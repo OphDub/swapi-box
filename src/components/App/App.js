@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
 import Main from '../Main/Main';
-// import Welcome from '../Welcome/Welcome';
-// import People from '../People/People';
-// import Planets from '../Planets/Planets';
-// import Vehicles from '../Vehicles/Vehicles';
-import {apiGet} from '../helper/helper';
+import {
+  getFilmsData,
+  getPeopleData,
+  getPlanetsData,
+  getVehiclesData,
+} from '../helper/helper';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      films: [],
+      film: {},
       planets: [],
       people: [],
       vehicles: [],
@@ -21,20 +21,33 @@ class App extends Component {
     }
   }
 
-  getFilmData = async () => {
-    const films = await apiGet('films')
+  getRandomFilmData = async () => {
+    const films = await getFilmsData()
+    const randomNum = Math.floor(Math.random() * 7 + 1)
 
-    this.setState({ films })
+    this.setState({ film: films[randomNum] })
   }
 
-  getData = async (request) => {
-    const data = await apiGet(request)
+  handlePeopleData = async () => {
+    const people = await getPeopleData();
 
-    this.setState({ [request]: data })
+    this.setState({ people })
+  }
+
+  handlePlanetData = async () => {
+    const planets = await getPlanetsData();
+
+    this.setState({ planets })
+  }
+
+  handleVehicleData = async () => {
+    const vehicles = await getVehiclesData();
+
+    this.setState({ vehicles })
   }
 
   componentDidMount() {
-    this.getFilmData()
+    this.getRandomFilmData()
   }
 
   render() {
@@ -43,14 +56,13 @@ class App extends Component {
         <header>
           <h1>SWAPI BOX</h1>
         </header>
-        <Nav  getData={this.getData}/>
-        {/* <Switch>
-          <Route path="/" render={() => (<Welcome film={this.state.film[0]}/>)} />
-          <Route path="/people" render={() => (<People />)} />
-          <Route path="/planets" render={() => (<Planets />)} />
-          <Route path="/vehicles" render={() => (<Vehicles />)} />
-        </Switch> */}
-        <Main film={this.state.films[0]}/>
+        <Nav  handlePeopleData={this.handlePeopleData}
+              handlePlanetsData={this.handlePlanetData}
+              handleVehiclesData={this.handleVehicleData} />
+        <Main film={this.state.film}
+              planets={this.state.planets}
+              people={this.state.people}
+              vehicles={this.state.vehicles} />
       </div>
     );
   }
