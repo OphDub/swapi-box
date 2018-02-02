@@ -1,16 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Nav = ({getData, handlePeopleData, handlePlanetsData, handleVehiclesData}) => {
+const Nav = ({ getData }) => {
   return(
     <nav>
-      <button onClick={handlePeopleData}>
+      <button onClick={() => getData('people')}>
         <NavLink to='/people'>People</NavLink>
       </button>
-      <button onClick={handlePlanetsData}>
+      <button onClick={() => getData('planets')}>
         <NavLink to='/planets'>Planets</NavLink>
       </button>
-      <button onClick={handleVehiclesData}>
+      <button onClick={() => getData('vehicles')}>
         <NavLink to='/vehicles'>Vehicles</NavLink>
       </button>
     </nav>

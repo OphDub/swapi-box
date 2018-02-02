@@ -5,18 +5,15 @@ const apiGet = async (request) => {
   switch(request) {
     case 'films':
       return await cleanFilmData(response)
-      break;
     case 'people':
       return await cleanPeopleData(response)
-      break;
     case 'planets':
       return await cleanPlanetData(response)
-      break;
     case 'vehicles':
       return await cleanVehicleData(response)
-      break;
     default:
       console.log('Error!')
+      break;
   }
 }
 
@@ -29,34 +26,6 @@ const fetchAndParse = async (url) => {
     return await response.json()
   }
 }
-
-// const getFilmsData = async () => {
-//   const url = `https://swapi.co/api/films/`
-//   const response = await fetchAndParse(url)
-
-//   return await cleanFilmData(response)
-// }
-
-// const getPeopleData = async () => {
-//   const url = `https://swapi.co/api/people/`
-//   const response = await fetchAndParse(url)
-
-//   return await cleanPeopleData(response)
-// }
-
-// const getPlanetsData = async () => {
-//   const url = `https://swapi.co/api/planets/`
-//   const response = await fetchAndParse(url)
-
-//   return await cleanPlanetData(response)
-// }
-
-// const getVehiclesData = async () => {
-//   const url = `https://swapi.co/api/vehicles/`
-//   const response = await fetchAndParse(url)
-
-//   return await cleanVehicleData(response)
-// }
 
 const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
@@ -77,11 +46,11 @@ const getHomeworldData = async (url) => {
   }
 }
 
-const getSpeciesData = (urls) => {
+const getNameData = (urls) => {
   const unresolvedPromises = urls.map(async (url) => {
-    const species = await fetchAndParse(url)
+    const obj = await fetchAndParse(url);
 
-    return species.name
+    return obj.name;
   })
   return Promise.all(unresolvedPromises);
 }
@@ -89,7 +58,7 @@ const getSpeciesData = (urls) => {
 const cleanPeopleData = (peopleData) => {
   const people = peopleData.results.map( async (person) => {
     const homeworld = await getHomeworldData(person.homeworld)
-    const speciesTypes = await getSpeciesData(person.species)
+    const speciesTypes = await getNameData(person.species)
 
     return {
       name: person.name,
@@ -111,19 +80,9 @@ const cleanVehicleData = (vehicleData) => {
   })
 }
 
-const getPlanetResidents = (urls) => {
-  const unresolvedPromises = urls.map( async (url) => {
-    const resident = await fetchAndParse(url)
-
-    return resident.name
-  })
-
-  return Promise.all(unresolvedPromises)
-}
-
 const cleanPlanetData = (planetData) => {
   const planets = planetData.results.map( async (planet) => {
-    const residents = await getPlanetResidents(planet.residents)
+    const residents = await getNameData(planet.residents)
 
     return {
       name: planet.name,
@@ -139,10 +98,6 @@ const cleanPlanetData = (planetData) => {
 
 export {
   apiGet,
-  getFilmsData,
-  getPeopleData,
-  getPlanetsData,
-  getVehiclesData,
   cleanFilmData,
   cleanPeopleData,
   cleanVehicleData,
