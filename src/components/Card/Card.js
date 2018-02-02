@@ -19,7 +19,10 @@ const Card = ({element}) => {
 
   return(
     <article className="card">
-      <h3>{element.name}</h3>
+      <div>
+        <h3>{element.name}</h3>
+        <button>Favorite</button>
+      </div>
       <ul>
         {list}
       </ul>
