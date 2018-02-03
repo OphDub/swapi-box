@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '../Card/Card';
-import { string, object } from 'prop-types';
+import { string, object, func, arrayOf } from 'prop-types';
 
-const Container = ({ type, data }) => {
+const CardContainer = ({ type, data, saveFavorite }) => {
   let renderedCards;
 
   if (!data) {
@@ -16,7 +16,8 @@ const Container = ({ type, data }) => {
       return (
         <Card element={element}
           type={type}
-          key={`${Date.now()}${index}`} />
+          key={`${Date.now()}${index}`}
+          saveFavorite={saveFavorite}/>
       );
     });
   }
@@ -28,9 +29,10 @@ const Container = ({ type, data }) => {
   );
 };
 
-Container.propTypes = {
+CardContainer.propTypes = {
   type: string.isRequired,
-  data: object.isRequired,
+  data: arrayOf(object).isRequired,
+  saveFavorite: func.isRequired,
 };
 
-export default Container;
+export default CardContainer;

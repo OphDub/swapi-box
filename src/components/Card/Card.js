@@ -1,8 +1,8 @@
 import React from 'react';
 import './Card.scss';
-import { object } from 'prop-types';
+import { object, func } from 'prop-types';
 
-const Card = ({ element }) => {
+const Card = ({ element, saveFavorite }) => {
   const keys = Object.keys(element).filter((key)=> key !== 'name');
 
   const list = keys.map((key, index) => {
@@ -23,7 +23,7 @@ const Card = ({ element }) => {
     <article className="card">
       <div>
         <h3>{element.name}</h3>
-        <button>Favorite</button>
+        <button onClick={() => saveFavorite(element)}>Favorite</button>
       </div>
       <ul>
         {list}
@@ -34,6 +34,7 @@ const Card = ({ element }) => {
 
 Card.propTypes = {
   element: object.isRequired,
+  saveFavorite: func.isRequired,
 };
 
 export default Card;

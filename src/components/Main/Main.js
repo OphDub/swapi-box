@@ -1,19 +1,27 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Welcome from '../Welcome/Welcome';
-import Container from '../Container/Container';
-import { object, arrayOf, shape, string, number } from 'prop-types';
+import '../Welcome/Welcome.scss';
+import CardContainer from '../CardContainer/CardContainer';
+import '../CardContainer/CardContainer';
+import { object, arrayOf, shape, string, number, func } from 'prop-types';
 
-const Main = ({ film, planets, people, vehicles, favorites }) => {
+const Main = ({ film, planets, people, vehicles, saveFavorite, favorites }) => {
   return (
     <Switch>
       <Route exact path="/" render={() => (<Welcome film={film}/>)} />
       <Route path="/people" render={() =>
-        (<Container type="people" data={people}/>)} />
+        (<CardContainer type="people"
+                        data={people}
+                        saveFavorite={saveFavorite}/>)} />
       <Route path="/planets" render={() =>
-        (<Container type="planets" data={planets}/>)} />
+        (<CardContainer type="planets"
+                        data={planets}
+                        saveFavorite={saveFavorite}/>)} />
       <Route path="/vehicles" render={() =>
-        (<Container type="vehicles" data={vehicles}/>)} />
+        (<CardContainer type="vehicles"
+                        data={vehicles}
+                        saveFavorite={saveFavorite}/>)} />
     </Switch>
   );
 };
@@ -36,15 +44,16 @@ const person = shape({
 const vehicle = shape({
   name: string.isRequired,
   model: string.isRequired,
-  passengers: number.isRequired,
+  passengers: string.isRequired,
   class: string.isRequired,
 });
 
 Main.propTypes = {
   film: object.isRequired,
-  planets: arrayOf(planet),
-  people: arrayOf(person),
-  vehicles: arrayOf(vehicle),
+  planets: arrayOf(planet).isRequired,
+  people: arrayOf(person).isRequired,
+  vehicles: arrayOf(vehicle).isRequired,
+  saveFavorite: func.isRequired,
 };
 
 export default Main;

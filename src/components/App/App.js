@@ -29,6 +29,10 @@ class App extends Component {
     this.setState({ film: films[randomNum] });
   }
 
+  saveFavorite = (thing) => {
+    console.log(thing)
+  }
+
   componentDidMount () {
     this.getRandomFilmData();
   }
@@ -50,6 +54,7 @@ class App extends Component {
           planets={this.state.planets}
           people={this.state.people}
           vehicles={this.state.vehicles}
+          saveFavorite={this.saveFavorite}
           favorites={this.state.favorites} />
       </div>
     );
