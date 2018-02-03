@@ -29,12 +29,19 @@ class App extends Component {
     this.setState({ film: films[randomNum] });
   }
 
-  saveFavorite = (thing) => {
+  saveFavorite = (element) => {
     const { favorites } = this.state;
-    const noDupes = favorites.filter(favorite => favorite.name !== thing.name)
-    const newFaves = [...noDupes, thing]
+    const noDupes = favorites.filter(favorite => favorite.name !== element.name);
+    const newFaves = [...noDupes, element];
 
-    this.setState({ favorites: newFaves })
+    this.setState({ favorites: newFaves });
+  }
+
+  removeFavorite = (element) => {
+    const { favorites } = this.state;
+    const removeFave = favorites.filter(favorite => favorite.name !== element.name);
+
+    this.setState({ favorites: removeFave });
   }
 
   componentDidMount () {

@@ -74,11 +74,20 @@ describe('APP', () => {
     expect(wrapper.state().favorites).toEqual(result)
   });
 
-  it('should not save the save object to the favorites array', () => {
+  it('should remove objects from the favorites array', async () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => new Promise((resolve, reject) => {
+        resolve(mockFilmData)
+      })
+    }));
 
-  })
+    const wrapper = await shallow(<App />);
+    const emptyArray = []
 
-  it('should remove objects from the favorites array', () => {
+    wrapper.instance().saveFavorite(...mockCleanPlanetData);
+    wrapper.instance().removeFavorite(...mockCleanPlanetData);
 
+    expect(wrapper.state().favorites).toEqual(emptyArray)
   });
 });
