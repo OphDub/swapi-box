@@ -32,16 +32,10 @@ class App extends Component {
   saveFavorite = (element) => {
     const { favorites } = this.state;
     const noDupes = favorites.filter(favorite => favorite.name !== element.name);
-    const newFaves = [...noDupes, element];
+    const newFaves = favorites.includes(element)  ? noDupes
+                                                  : [...noDupes, element]
 
     this.setState({ favorites: newFaves });
-  }
-
-  removeFavorite = (element) => {
-    const { favorites } = this.state;
-    const removeFave = favorites.filter(favorite => favorite.name !== element.name);
-
-    this.setState({ favorites: removeFave });
   }
 
   componentDidMount () {

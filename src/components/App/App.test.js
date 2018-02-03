@@ -56,7 +56,7 @@ describe('APP', () => {
 
   });
 
-  it('should save objects to the favorites array and not add duplicates', async () => {
+  it('should save objects to the favorites array', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => new Promise((resolve, reject) => {
@@ -65,16 +65,14 @@ describe('APP', () => {
     }));
 
     const wrapper = await shallow(<App />);
-    const result = [...mockCleanVehicleData, ...mockCleanPlanetData]
+    const result = mockCleanVehicleData
 
-    wrapper.instance().saveFavorite(...mockCleanPlanetData)
     wrapper.instance().saveFavorite(...mockCleanVehicleData)
-    wrapper.instance().saveFavorite(...mockCleanPlanetData)
 
     expect(wrapper.state().favorites).toEqual(result)
   });
 
-  it('should remove objects from the favorites array', async () => {
+  it('should remove duplicate objects from the favorites array', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => new Promise((resolve, reject) => {
@@ -86,7 +84,7 @@ describe('APP', () => {
     const emptyArray = []
 
     wrapper.instance().saveFavorite(...mockCleanPlanetData);
-    wrapper.instance().removeFavorite(...mockCleanPlanetData);
+    wrapper.instance().saveFavorite(...mockCleanPlanetData);
 
     expect(wrapper.state().favorites).toEqual(emptyArray)
   });
