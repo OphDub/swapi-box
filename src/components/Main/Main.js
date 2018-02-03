@@ -22,6 +22,10 @@ const Main = ({ film, planets, people, vehicles, saveFavorite, favorites }) => {
         (<CardContainer type="vehicles"
                         data={vehicles}
                         saveFavorite={saveFavorite}/>)} />
+      <Route path="/favorites" render={() =>
+        (<CardContainer type="favorites"
+                        data={favorites}
+                        saveFavorite={saveFavorite}/>)} />
     </Switch>
   );
 };

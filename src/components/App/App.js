@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
 import Main from '../Main/Main';
@@ -48,10 +49,12 @@ class App extends Component {
         <header>
           <h1 className="swapi-title">SWAPI BOX</h1>
           <button className="faves">
-            <h3>
-              View Favorites
-            </h3>
-            {this.state.favorites.length}
+            <NavLink to="/favorites">
+              Favorites
+              <div className="fave-count">
+                {this.state.favorites.length}
+              </div>
+            </NavLink>
           </button>
         </header>
         <Nav  getData={this.getData} />
