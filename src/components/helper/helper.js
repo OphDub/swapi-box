@@ -1,72 +1,88 @@
-export const cleanFilmData = (filmData) => {
+const apiGet = async (request) => {
+  const url = `https://swapi.co/api/${request}/`;
+  const response = await fetchAndParse(url);
+
+  switch (request) {
+  case 'films':
+    return await cleanFilmData(response);
+  case 'people':
+    return await cleanPeopleData(response);
+  case 'planets':
+    return await cleanPlanetData(response);
+  case 'vehicles':
+    return await cleanVehicleData(response);
+  default:
+    console.log('Error!');
+    break;
+  }
+};
+
+const fetchAndParse = async (url) => {
+  const response = await fetch(url);
+
+  if (response.status >= 400) {
+    throw (new Error('Please wait fetching Star Wars facts'));
+  }
+
+  return await response.json();
+};
+
+const cleanFilmData = (filmData) => {
   return filmData.results.map(film => {
     return {
       title: film.title,
       crawl: film.opening_crawl,
       releaseDate: film.release_date,
-    }
-  })
-}
+    };
+  });
+};
 
 const getHomeworldData = async (url) => {
-  const initialFetch = await fetch(url)
-  const homeworldObj = await initialFetch.json()
+  const homeworldObj = await fetchAndParse(url);
 
   return {
     homeworld: homeworldObj.name,
     population: homeworldObj.population,
-  }
-}
+  };
+};
 
-const getSpeciesData = (urls) => {
+const getNameData = (urls) => {
   const unresolvedPromises = urls.map(async (url) => {
-    const initialFetch = await fetch(url)
-    const species = await initialFetch.json()
+    const element = await fetchAndParse(url);
 
-    return species.name
-  })
+    return element.name;
+  });
   return Promise.all(unresolvedPromises);
-}
+};
 
-export const cleanPeopleData = (peopleData) => {
+const cleanPeopleData = (peopleData) => {
   const people = peopleData.results.map( async (person) => {
-    const homeworld = await getHomeworldData(person.homeworld)
-    const speciesTypes = await getSpeciesData(person.species)
+    const homeworld = await getHomeworldData(person.homeworld);
+    const speciesTypes = await getNameData(person.species);
 
     return {
       name: person.name,
       ...homeworld,
       species: speciesTypes,
-    }
-  })
+    };
+  });
   return Promise.all(people);
-}
+};
 
-export const cleanVehicleData = (vehicleData) => {
+const cleanVehicleData = (vehicleData) => {
   return vehicleData.results.map((vehicle) => {
     return {
       name: vehicle.name,
       model: vehicle.model,
       passengers: vehicle.passengers,
-      vehicleClass: vehicle.vehicle_class,
-    }
-  })
-}
+      class: vehicle.vehicle_class,
+    };
+  });
+};
 
-export const getPlanetResidents = (urls) => {
-  const unresolvedPromises = urls.map( async (url) => {
-    const initialFetch = await fetch(url)
-    const resident = await initialFetch.json()
-
-    return resident.name
-  })
-
-  return Promise.all(unresolvedPromises)
-}
-
-export const cleanPlanetData = (planetData) => {
+const cleanPlanetData = (planetData) => {
   const planets = planetData.results.map( async (planet) => {
-    const residents = await getPlanetResidents(planet.residents)
+    const residents = await getNameData(planet.residents);
 
     return {
       name: planet.name,
@@ -74,8 +90,18 @@ export const cleanPlanetData = (planetData) => {
       terrain: planet.terrain,
       population: planet.population,
       residents: residents,
-    }
-  })
+    };
+  });
 
-  return Promise.all(planets)
-}
+  return Promise.all(planets);
+};
+
+export {
+  apiGet,
+  fetchAndParse,
+  cleanFilmData,
+  cleanPeopleData,
+  cleanVehicleData,
+  cleanPlanetData,
+  getNameData,
+};

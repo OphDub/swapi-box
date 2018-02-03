@@ -1,9 +1,12 @@
+/* eslint-disable */
 import {
+  apiGet,
+  fetchAndParse,
   cleanFilmData,
   cleanPeopleData,
   cleanVehicleData,
   cleanPlanetData,
-  getPlanetResidents,
+  getNameData,
 } from './helper.js';
 
 import {
@@ -18,42 +21,141 @@ import {
 } from '../mock-data';
 
 describe('HELPER', () => {
-  it('cleans the array of film data given to it', () => {
-    const result = cleanFilmData(mockFilmData)
+  describe('fetchAndParse', () => {
+    it('calls fetch with the correct params', () => {
+      const expectedParams = `https://swapi.co/api/films/`
 
-    expect(result).toEqual(mockCleanFilmData)
-  })
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockFilmData)
+        })
+      }));
 
-  it.skip('cleans the array of people data given to it', () => {
-    const result = cleanPeopleData(mockPeopleData)
+      fetchAndParse(expectedParams);
 
-    expect(result).toEqual(mockCleanPeopleData)
-  })
+      expect(window.fetch).toHaveBeenCalledWith(expectedParams);
+    });
 
-  it('cleans the array of vehicle data given to it', () => {
-    const result = cleanVehicleData(mockVehicleData)
+    it('returns an object when status code is OK', () => {
+      const mockRequest = `https://swapi.co/api/films/`;
 
-    expect(result).toEqual(mockCleanVehicleData)
-  })
+      expect(fetchAndParse(mockRequest)).resolves.toEqual(mockFilmData);
+    });
 
-  it.skip('cleans the array of planet data given to it', () => {
-    const result = cleanPlanetData(mockPlanetData)
+    it('returns an error when status code is not OK', () => {
+      const mockRequest = `https://swapi.co/api/films/`;
 
-    expect(result).resolves.toEqual(mockCleanPlanetData)
-  })
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 500,
+      }));
 
-  it('returns a residents array when status code is OK', () => {
-    const mockUrls = [
-      "https://swapi.co/api/people/5/",
-      "https://swapi.co/api/people/68/",
-      "https://swapi.co/api/people/81/"
-    ]
-    const mockResidents = [
-      "Leia Organa",
-      "Bail Prestor Organa",
-      "Raymus Antilles"
-    ]
+      expect(fetchAndParse(mockRequest)).rejects.toEqual(Error('Please wait fetching Star Wars facts'));
+    });
+  });
 
-    expect(getPlanetResidents(mockUrls)).resolves.toEqual(mockResidents)
-  })
-})
+  describe('apiGET', () => {
+    it('returns an array of cleaned filmData when given the string films', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockFilmData)
+        })
+      }));
+
+      const result = await apiGet('films');
+
+      expect(result).toEqual(mockCleanFilmData);
+    });
+
+    it('returns an array of cleaned peopleData when given the string people', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockPeopleData)
+        })
+      }));
+
+      const result = await apiGet('people');
+
+      expect(result).toEqual(mockCleanPeopleData);
+    });
+
+    it('returns an array of cleaned vehicleData when given the string vehicles', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockVehicleData)
+        })
+      }));
+
+      const result = await apiGet('vehicles');
+
+      expect(result).toEqual(mockCleanVehicleData);
+    });
+
+    it('returns an array of cleaned planetData when given the string planets', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise ((resolve, reject) => {
+          resolve(mockPlanetData)
+        })
+      }));
+
+      const result = await apiGet('planets');
+
+      expect(result).toEqual(mockCleanPlanetData);
+    });
+
+    it('getNameData - returns an array of names from the array of objects given to it', async () => {
+      const mockUrlsArray = [
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/68/",
+        "https://swapi.co/api/people/81/",
+      ]
+
+      const mockNamedResidentsArray = [
+        undefined,
+        undefined,
+        undefined,
+      ]
+
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockUrlsArray)
+        })
+      }));
+
+      const result = await getNameData(mockUrlsArray);
+
+      expect(result).toEqual(mockNamedResidentsArray);
+    });
+  });
+
+  describe('DATA CLEANERS', () => {
+    it('cleanFilmData - cleans the array of film data given to it', () => {
+      const result = cleanFilmData(mockFilmData);
+
+      expect(result).toEqual(mockCleanFilmData);
+    });
+
+    it('cleanPeopleData - cleans the array of people data given to it', async () => {
+      const result = await cleanPeopleData(mockPeopleData);
+
+      expect(result).toEqual(mockCleanPeopleData);
+    });
+
+    it('cleanVehicleData - cleans the array of vehicle data given to it', () => {
+      const result = cleanVehicleData(mockVehicleData);
+
+      expect(result).toEqual(mockCleanVehicleData);
+    });
+
+    it('cleanPlanetData - cleans the array of planet data given to it', async () => {
+      const result = await cleanPlanetData(mockPlanetData);
+
+      expect(result).toEqual(mockCleanPlanetData);
+    });
+  });
+});

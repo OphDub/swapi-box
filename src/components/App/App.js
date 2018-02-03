@@ -2,69 +2,55 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from '../Nav/Nav';
 import Main from '../Main/Main';
-import {
-  cleanFilmData,
-  cleanPeopleData,
-  cleanVehicleData,
-  cleanPlanetData
-} from '../helper/helper';
-
+import {apiGet} from '../helper/helper';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      films: [],
+      film: {},
       planets: [],
       people: [],
-      vehicles: []
-    }
-  }
-
-  getFilmData = async (url) => {
-    const initialFetch = await fetch(url)
-    const uncleanedFilms = await initialFetch.json()
-    const films = cleanFilmData(uncleanedFilms)
-
-    this.setState({ films })
+      vehicles: [],
+      favorites: [],
+    };
   }
 
   getData = async (request) => {
-    const url = `https://swapi.co/api/${request}/`
-    const response = await fetch(url)
-    const result = await response.json()
-    let data
+    const data = await apiGet(request);
 
-    switch(request) {
-      case 'people':
-        data = await cleanPeopleData(result)
-        break;
-      case 'planets':
-        data = await cleanPlanetData(result)
-        break;
-      case 'vehicles':
-        data = await cleanVehicleData(result)
-        break;
-    }
-
-    this.setState({ [request]: data })
+    this.setState({ [request]: data });
   }
 
-  componentDidMount() {
-    const request = 'films'
-    const url = `https://swapi.co/api/${request}/`
+  getRandomFilmData = async () => {
+    const films = await apiGet('films');
+    const randomNum = Math.floor(Math.random() * 7 + 1);
 
-    this.getFilmData(url)
+    this.setState({ film: films[randomNum] });
+  }
+
+  componentDidMount () {
+    this.getRandomFilmData();
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <header>
-          <h1>SWAPI BOX</h1>
+          <h1 className="swapi-title">SWAPI BOX</h1>
+          <button className="faves">
+            <h3>
+              View Favorites
+            </h3>
+            {this.state.favorites.length}
+          </button>
         </header>
-        <Nav getData={this.getData}/>
-        <Main />
+        <Nav  getData={this.getData} />
+        <Main film={this.state.film}
+          planets={this.state.planets}
+          people={this.state.people}
+          vehicles={this.state.vehicles}
+          favorites={this.state.favorites} />
       </div>
     );
   }
