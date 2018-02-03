@@ -13,20 +13,20 @@ class App extends Component {
       people: [],
       vehicles: [],
       favorites: [],
-    }
+    };
   }
 
   getData = async (request) => {
-    const data = await apiGet(request)
+    const data = await apiGet(request);
 
-    this.setState({ [request]: data })
+    this.setState({ [request]: data });
   }
 
   getRandomFilmData = async () => {
     const films = await apiGet('films');
-    const randomNum = Math.floor(Math.random() * 7 + 1)
+    const randomNum = Math.floor(Math.random() * 7 + 1);
 
-    this.setState({ film: films[randomNum] })
+    this.setState({ film: films[randomNum] });
   }
 
   componentDidMount () {
@@ -47,10 +47,10 @@ class App extends Component {
         </header>
         <Nav  getData={this.getData} />
         <Main film={this.state.film}
-              planets={this.state.planets}
-              people={this.state.people}
-              vehicles={this.state.vehicles}
-              favorites={this.state.favorites} />
+          planets={this.state.planets}
+          people={this.state.people}
+          vehicles={this.state.vehicles}
+          favorites={this.state.favorites} />
       </div>
     );
   }

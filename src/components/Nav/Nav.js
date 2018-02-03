@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { func } from 'prop-types';
 
 const Nav = ({ getData }) => {
-  return(
+  return (
     <nav>
       <button onClick={() => getData('people')}>
         <NavLink to='/people'>People</NavLink>
@@ -14,7 +15,11 @@ const Nav = ({ getData }) => {
         <NavLink to='/vehicles'>Vehicles</NavLink>
       </button>
     </nav>
-  )
-}
+  );
+};
+
+Nav.propTypes = {
+  getData: func.isRequired
+};
 
 export default Nav;

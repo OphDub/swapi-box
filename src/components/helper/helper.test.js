@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   apiGet,
   fetchAndParse,
@@ -105,6 +106,31 @@ describe('HELPER', () => {
 
       expect(result).toEqual(mockCleanPlanetData);
     });
+
+    it('getNameData - returns an array of names from the array of objects given to it', async () => {
+      const mockUrlsArray = [
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/68/",
+        "https://swapi.co/api/people/81/",
+      ]
+
+      const mockNamedResidentsArray = [
+        undefined,
+        undefined,
+        undefined,
+      ]
+
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 200,
+        json: () => new Promise((resolve, reject) => {
+          resolve(mockUrlsArray)
+        })
+      }));
+
+      const result = await getNameData(mockUrlsArray);
+
+      expect(result).toEqual(mockNamedResidentsArray);
+    });
   });
 
   describe('DATA CLEANERS', () => {
@@ -114,8 +140,8 @@ describe('HELPER', () => {
       expect(result).toEqual(mockCleanFilmData);
     });
 
-    it.skip('cleanPeopleData - cleans the array of people data given to it', () => {
-      const result = cleanPeopleData(mockPeopleData);
+    it('cleanPeopleData - cleans the array of people data given to it', async () => {
+      const result = await cleanPeopleData(mockPeopleData);
 
       expect(result).toEqual(mockCleanPeopleData);
     });
@@ -126,10 +152,10 @@ describe('HELPER', () => {
       expect(result).toEqual(mockCleanVehicleData);
     });
 
-    it.skip('cleanPlanetData - cleans the array of planet data given to it', () => {
-      const result = cleanPlanetData(mockPlanetData);
+    it('cleanPlanetData - cleans the array of planet data given to it', async () => {
+      const result = await cleanPlanetData(mockPlanetData);
 
-      expect(result).resolves.toEqual(mockCleanPlanetData);
+      expect(result).toEqual(mockCleanPlanetData);
     });
   });
 });

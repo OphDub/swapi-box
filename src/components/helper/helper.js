@@ -2,29 +2,29 @@ const apiGet = async (request) => {
   const url = `https://swapi.co/api/${request}/`;
   const response = await fetchAndParse(url);
 
-  switch(request) {
-    case 'films':
-      return await cleanFilmData(response);
-    case 'people':
-      return await cleanPeopleData(response);
-    case 'planets':
-      return await cleanPlanetData(response);
-    case 'vehicles':
-      return await cleanVehicleData(response);
-    default:
-      console.log('Error!');
-      break;
-  };
+  switch (request) {
+  case 'films':
+    return await cleanFilmData(response);
+  case 'people':
+    return await cleanPeopleData(response);
+  case 'planets':
+    return await cleanPlanetData(response);
+  case 'vehicles':
+    return await cleanVehicleData(response);
+  default:
+    console.log('Error!');
+    break;
+  }
 };
 
 const fetchAndParse = async (url) => {
   const response = await fetch(url);
 
-  if(response.status >= 400) {
-    throw(new Error('Please wait fetching Star Wars facts'));
-  } else {
-    return await response.json();
-  };
+  if (response.status >= 400) {
+    throw (new Error('Please wait fetching Star Wars facts'));
+  }
+
+  return await response.json();
 };
 
 const cleanFilmData = (filmData) => {
@@ -48,12 +48,12 @@ const getHomeworldData = async (url) => {
 
 const getNameData = (urls) => {
   const unresolvedPromises = urls.map(async (url) => {
-    const obj = await fetchAndParse(url);
+    const element = await fetchAndParse(url);
 
-    return obj.name;
-  })
+    return element.name;
+  });
   return Promise.all(unresolvedPromises);
-}
+};
 
 const cleanPeopleData = (peopleData) => {
   const people = peopleData.results.map( async (person) => {
@@ -65,7 +65,7 @@ const cleanPeopleData = (peopleData) => {
       ...homeworld,
       species: speciesTypes,
     };
-  })
+  });
   return Promise.all(people);
 };
 
@@ -77,7 +77,7 @@ const cleanVehicleData = (vehicleData) => {
       passengers: vehicle.passengers,
       class: vehicle.vehicle_class,
     };
-  })
+  });
 };
 
 const cleanPlanetData = (planetData) => {
@@ -103,4 +103,5 @@ export {
   cleanPeopleData,
   cleanVehicleData,
   cleanPlanetData,
+  getNameData,
 };

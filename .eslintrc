@@ -23,7 +23,11 @@
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "camelcase": "warn",
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": ["error", { "arrays": "only-multiline",
+                                "objects": "only-multiline",
+                                "imports": "only-multiline",
+                                "exports": "only-multiline",
+                                "functions": "ignore"}],
     "comma-spacing": ["error", { "before": false, "after": true }],
     "comma-style": ["error", "last"],
     "computed-property-spacing": ["error", "never"],
@@ -32,7 +36,7 @@
     "max-len": ["warn", 80],
     "no-duplicate-imports": "error",
     "id-length": "error",
-    "id-blacklist": ["error", "data", "err", "e", "cb", "callback", "payload", "obj", "arr"],
+    "id-blacklist": ["error", "err", "e", "cb", "callback", "payload", "obj", "arr"],
     "max-depth": ["warn", 4]
   },
   "globals": {
