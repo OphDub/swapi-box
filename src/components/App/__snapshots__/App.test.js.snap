@@ -1,0 +1,295 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`APP should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <header>
+          <h1
+                    className="swapi-title"
+          >
+                    SWAPI BOX
+          </h1>
+          <button
+                    className="faves"
+          >
+                    <h3>
+                              View Favorites
+                    </h3>
+                    0
+          </button>
+</header>,
+        <Nav
+          getData={[Function]}
+/>,
+        <Main
+          favorites={Array []}
+          film={Object {}}
+          people={Array []}
+          planets={Array []}
+          saveFavorite={[Function]}
+          vehicles={Array []}
+/>,
+      ],
+      "className": "app",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1
+              className="swapi-title"
+>
+              SWAPI BOX
+</h1>,
+            <button
+              className="faves"
+>
+              <h3>
+                            View Favorites
+              </h3>
+              0
+</button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "SWAPI BOX",
+              "className": "swapi-title",
+            },
+            "ref": null,
+            "rendered": "SWAPI BOX",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h3>
+                  View Favorites
+</h3>,
+                0,
+              ],
+              "className": "faves",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "View Favorites",
+                },
+                "ref": null,
+                "rendered": "View Favorites",
+                "type": "h3",
+              },
+              0,
+            ],
+            "type": "button",
+          },
+        ],
+        "type": "header",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "getData": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "favorites": Array [],
+          "film": Object {},
+          "people": Array [],
+          "planets": Array [],
+          "saveFavorite": [Function],
+          "vehicles": Array [],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header>
+            <h1
+                        className="swapi-title"
+            >
+                        SWAPI BOX
+            </h1>
+            <button
+                        className="faves"
+            >
+                        <h3>
+                                    View Favorites
+                        </h3>
+                        0
+            </button>
+</header>,
+          <Nav
+            getData={[Function]}
+/>,
+          <Main
+            favorites={Array []}
+            film={Object {}}
+            people={Array []}
+            planets={Array []}
+            saveFavorite={[Function]}
+            vehicles={Array []}
+/>,
+        ],
+        "className": "app",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="swapi-title"
+>
+                SWAPI BOX
+</h1>,
+              <button
+                className="faves"
+>
+                <h3>
+                                View Favorites
+                </h3>
+                0
+</button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "SWAPI BOX",
+                "className": "swapi-title",
+              },
+              "ref": null,
+              "rendered": "SWAPI BOX",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h3>
+                    View Favorites
+</h3>,
+                  0,
+                ],
+                "className": "faves",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "View Favorites",
+                  },
+                  "ref": null,
+                  "rendered": "View Favorites",
+                  "type": "h3",
+                },
+                0,
+              ],
+              "type": "button",
+            },
+          ],
+          "type": "header",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "getData": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "favorites": Array [],
+            "film": Object {},
+            "people": Array [],
+            "planets": Array [],
+            "saveFavorite": [Function],
+            "vehicles": Array [],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

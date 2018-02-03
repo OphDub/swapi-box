@@ -30,7 +30,11 @@ class App extends Component {
   }
 
   saveFavorite = (thing) => {
-    console.log(thing)
+    const { favorites } = this.state;
+    const noDupes = favorites.filter(favorite => favorite.name !== thing.name)
+    const newFaves = [...noDupes, thing]
+
+    this.setState({ favorites: newFaves })
   }
 
   componentDidMount () {
