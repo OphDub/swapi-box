@@ -24,14 +24,20 @@ ShallowWrapper {
           >
                     SWAPI BOX
           </h1>
-          <button
-                    className="faves"
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    to="/favorites"
           >
-                    <h3>
-                              View Favorites
-                    </h3>
-                    0
-          </button>
+                    <button
+                              className="faves"
+                    >
+                              Favorites
+                              <div
+                                        className="fave-count"
+                              />
+                    </button>
+          </NavLink>
 </header>,
         <Nav
           getData={[Function]}
@@ -60,14 +66,20 @@ ShallowWrapper {
 >
               SWAPI BOX
 </h1>,
-            <button
-              className="faves"
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              to="/favorites"
 >
-              <h3>
-                            View Favorites
-              </h3>
-              0
-</button>,
+              <button
+                            className="faves"
+              >
+                            Favorites
+                            <div
+                                          className="fave-count"
+                            />
+              </button>
+</NavLink>,
           ],
         },
         "ref": null,
@@ -87,32 +99,53 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <h3>
-                  View Favorites
-</h3>,
-                0,
-              ],
-              "className": "faves",
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": <button
+                className="faves"
+>
+                Favorites
+                <div
+                                className="fave-count"
+                />
+</button>,
+              "to": "/favorites",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "View Favorites",
-                },
-                "ref": null,
-                "rendered": "View Favorites",
-                "type": "h3",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Favorites",
+                  <div
+                    className="fave-count"
+/>,
+                ],
+                "className": "faves",
               },
-              0,
-            ],
-            "type": "button",
+              "ref": null,
+              "rendered": Array [
+                "Favorites",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 0,
+                    "className": "fave-count",
+                  },
+                  "ref": null,
+                  "rendered": 0,
+                  "type": "div",
+                },
+              ],
+              "type": "button",
+            },
+            "type": [Function],
           },
         ],
         "type": "header",
@@ -160,14 +193,20 @@ ShallowWrapper {
             >
                         SWAPI BOX
             </h1>
-            <button
-                        className="faves"
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/favorites"
             >
-                        <h3>
-                                    View Favorites
-                        </h3>
-                        0
-            </button>
+                        <button
+                                    className="faves"
+                        >
+                                    Favorites
+                                    <div
+                                                className="fave-count"
+                                    />
+                        </button>
+            </NavLink>
 </header>,
           <Nav
             getData={[Function]}
@@ -196,14 +235,20 @@ ShallowWrapper {
 >
                 SWAPI BOX
 </h1>,
-              <button
-                className="faves"
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/favorites"
 >
-                <h3>
-                                View Favorites
-                </h3>
-                0
-</button>,
+                <button
+                                className="faves"
+                >
+                                Favorites
+                                <div
+                                                className="fave-count"
+                                />
+                </button>
+</NavLink>,
             ],
           },
           "ref": null,
@@ -223,32 +268,53 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": Array [
-                  <h3>
-                    View Favorites
-</h3>,
-                  0,
-                ],
-                "className": "faves",
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": <button
+                  className="faves"
+>
+                  Favorites
+                  <div
+                                    className="fave-count"
+                  />
+</button>,
+                "to": "/favorites",
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "View Favorites",
-                  },
-                  "ref": null,
-                  "rendered": "View Favorites",
-                  "type": "h3",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Favorites",
+                    <div
+                      className="fave-count"
+/>,
+                  ],
+                  "className": "faves",
                 },
-                0,
-              ],
-              "type": "button",
+                "ref": null,
+                "rendered": Array [
+                  "Favorites",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 0,
+                      "className": "fave-count",
+                    },
+                    "ref": null,
+                    "rendered": 0,
+                    "type": "div",
+                  },
+                ],
+                "type": "button",
+              },
+              "type": [Function],
             },
           ],
           "type": "header",
