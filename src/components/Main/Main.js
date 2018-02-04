@@ -13,18 +13,22 @@ const Main = ({ film, planets, people, vehicles, saveFavorite, favorites }) => {
       <Route path="/people" render={() =>
         (<CardContainer type="people"
                         data={people}
+                        favorites={favorites}
                         saveFavorite={saveFavorite}/>)} />
       <Route path="/planets" render={() =>
         (<CardContainer type="planets"
                         data={planets}
+                        favorites={favorites}
                         saveFavorite={saveFavorite}/>)} />
       <Route path="/vehicles" render={() =>
         (<CardContainer type="vehicles"
                         data={vehicles}
+                        favorites={favorites}
                         saveFavorite={saveFavorite}/>)} />
       <Route path="/favorites" render={() =>
         (<CardContainer type="favorites"
                         data={favorites}
+                        favorites={favorites}
                         saveFavorite={saveFavorite}/>)} />
     </Switch>
   );

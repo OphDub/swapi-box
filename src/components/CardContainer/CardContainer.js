@@ -2,8 +2,10 @@ import React from 'react';
 import Card from '../Card/Card';
 import { string, object, func, arrayOf } from 'prop-types';
 
-const CardContainer = ({ type, data, saveFavorite }) => {
+const CardContainer = ({ type, data, saveFavorite, favorites }) => {
   let renderedCards;
+  //check if data includes object from favorites
+  //if favorite is included in data then change class
 
   if (!data) {
     renderedCards = (
