@@ -56,7 +56,7 @@ describe('APP', () => {
 
   });
 
-  it('should save objects to the favorites array', async () => {
+  it('should save objects to the favorites array and change their favorited status to true', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => new Promise((resolve, reject) => {
@@ -65,11 +65,12 @@ describe('APP', () => {
     }));
 
     const wrapper = await shallow(<App />);
-    const result = mockCleanVehicleData
+    const result = mockCleanVehicleData;
 
-    wrapper.instance().saveFavorite(...mockCleanVehicleData)
+    wrapper.instance().saveFavorite(...mockCleanVehicleData);
 
-    expect(wrapper.state().favorites).toEqual(result)
+    expect(wrapper.state().favorites).toEqual(result);
+    expect(...result.favorited).toEqual(true);
   });
 
   it('should remove duplicate objects from the favorites array', async () => {

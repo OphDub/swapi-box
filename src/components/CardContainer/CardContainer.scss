@@ -3,6 +3,8 @@
   background-repeat: no-repeat;
   width: 500px;
   height: 250px;
+  display: flex;
+  align-content: center;
 }
 
 .loading-planets {
@@ -10,4 +12,6 @@
   background-repeat: no-repeat;
   width: 720px;
   height: 405px;
+  display: flex;
+  align-content: center;
 }

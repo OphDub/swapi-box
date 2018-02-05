@@ -34,6 +34,7 @@ class App extends Component {
     element.favorited === false ?
       element.favorited = true :
       element.favorited = false;
+
     const { favorites } = this.state;
     const noDupes = favorites.filter(favorite =>
       favorite.name !== element.name

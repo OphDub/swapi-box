@@ -37,7 +37,7 @@ const planet = shape({
   name: string.isRequired,
   climate: string.isRequired,
   terrain: string.isRequired,
-  population: number.isRequired,
+  population: string.isRequired,
   residents: arrayOf(string.isRequired),
 });
 
