@@ -3,7 +3,9 @@ import './Card.css';
 import { object, func } from 'prop-types';
 
 const Card = ({ type, element, saveFavorite }) => {
-  const keys = Object.keys(element).filter((key)=> key !== 'name');
+  const keys = Object.keys(element).filter((key)=>
+    key !== 'name' && key !== 'favorited'
+  );
   const cardClass = element.favorited ? 'favorited' : ''
 
   const list = keys.map((key, index) => {

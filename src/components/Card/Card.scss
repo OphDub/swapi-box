@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 200px;
 }
 
 .favorited {
@@ -14,6 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .people {
@@ -21,6 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .planets {
@@ -28,6 +31,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .vehicles {
@@ -35,4 +39,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }

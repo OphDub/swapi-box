@@ -2,7 +2,8 @@
   border: yellow solid 1px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  max-width: 200px; }
 
 .favorited {
   background-color: magenta; }
@@ -11,22 +12,26 @@
   background-color: magenta;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
 
 .people {
   border: purple solid 1px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
 
 .planets {
   border: blue solid 1px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
 
 .vehicles {
   border: green solid 1px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
