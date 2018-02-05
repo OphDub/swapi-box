@@ -1,17 +1,17 @@
 import React from 'react';
 import './Card.css';
-import { object, func } from 'prop-types';
+import { object, func, string } from 'prop-types';
 
 const Card = ({ type, element, saveFavorite }) => {
   const keys = Object.keys(element).filter((key)=>
     key !== 'name' && key !== 'favorited'
   );
-  const cardClass = element.favorited ? 'favorited' : ''
+  const cardClass = element.favorited ? 'favorited' : '';
 
   const list = keys.map((key, index) => {
     let info = element[key];
     if (typeof element[key] === 'object') {
-      info = element[key].join(', ')
+      info = element[key].join(', ');
     }
 
     return (
@@ -26,7 +26,7 @@ const Card = ({ type, element, saveFavorite }) => {
       <div className={type}>
         <h3>{element.name}</h3>
         <button onClick={() => saveFavorite(element)}
-                className={cardClass}>
+          className={cardClass}>
           Favorite
         </button>
       </div>
@@ -38,6 +38,7 @@ const Card = ({ type, element, saveFavorite }) => {
 };
 
 Card.propTypes = {
+  type: string.isRequired,
   element: object.isRequired,
   saveFavorite: func.isRequired,
 };

@@ -3,7 +3,7 @@ import './CardContainer.css';
 import Card from '../Card/Card';
 import { string, object, func, arrayOf } from 'prop-types';
 
-const CardContainer = ({ type, data, saveFavorite, favorites }) => {
+const CardContainer = ({ type, data, saveFavorite }) => {
   let renderedCards;
 
   if (data.length === 0) {
