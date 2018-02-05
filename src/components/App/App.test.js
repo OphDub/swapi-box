@@ -49,7 +49,7 @@ describe('APP', () => {
   });
 
   it('should choose a random object from an array upon mounting', () => {
-
+    
   });
 
   it('should be able to getData', async () => {

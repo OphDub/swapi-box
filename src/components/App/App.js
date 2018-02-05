@@ -18,13 +18,16 @@ class App extends Component {
   }
 
   getData = async (request) => {
-    if(!localStorage[request]) {
-      const data = await apiGet(request);
-      await localStorage.setItem(request, JSON.stringify(data))
-    }
+    const data = await apiGet(request);
 
-    const data = JSON.parse(localStorage.getItem(request))
     this.setState({ [request]: data });
+    // if(!localStorage[request]) {
+    //   const data = await apiGet(request);
+    //   await localStorage.setItem(request, JSON.stringify(data))
+    // }
+
+    // const data = JSON.parse(localStorage.getItem(request))
+    // this.setState({ [request]: data });
   }
 
   getRandomFilmData = async () => {

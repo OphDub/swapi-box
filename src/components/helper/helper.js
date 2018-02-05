@@ -12,7 +12,6 @@ const apiGet = async (request) => {
   case 'vehicles':
     return await cleanVehicleData(response);
   default:
-    console.log('Error!');
     break;
   }
 };
