@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Welcome from '../Welcome/Welcome';
 import '../Welcome/Welcome.scss';
 import CardContainer from '../CardContainer/CardContainer';
-import { object, arrayOf, shape, string, number, func } from 'prop-types';
+import { object, arrayOf, shape, string, func } from 'prop-types';
 
 const Main = ({ film, planets, people, vehicles, saveFavorite, favorites }) => {
   return (
@@ -44,7 +44,7 @@ const planet = shape({
 const person = shape({
   name: string.isRequired,
   homeworld: string.isRequired,
-  population: number.isRequired,
+  population: string.isRequired,
   species: arrayOf(string.isRequired),
 });
 

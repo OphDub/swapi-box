@@ -18,6 +18,8 @@ class App extends Component {
   }
 
   getData = async (request) => {
+    //if data at request is already in state do nothing
+    //otherwise call apiGet and setState
     const data = await apiGet(request);
 
     this.setState({ [request]: data });
