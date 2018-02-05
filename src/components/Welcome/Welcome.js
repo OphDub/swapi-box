@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Welcome.css';
+import './Welcome.css';
 import { object } from 'prop-types';
 
 const Welcome = ({ film }) => {

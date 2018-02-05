@@ -56,32 +56,34 @@ describe('APP', () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => new Promise((resolve, reject) => {
-        resolve(mockFilmData)
+        resolve(mockVehicleData)
       })
     }));
+
     const wrapper = await shallow(<App />);
-    const expectedDataType = 'films';
-    const expectedResult = mockCleanFilmData;
+    const expectedDataType = 'vehicles';
+    const expectedResult = mockCleanVehicleData;
 
     wrapper.instance().getData(expectedDataType);
 
-    expect(wrapper.state().film).toEqual(...expectedResult);
+    expect(wrapper.state().expectedDataType).toEqual(expectedResult);
   });
 
   it('should save objects to the favorites array and change their favorited status to true', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => new Promise((resolve, reject) => {
-        resolve(mockFilmData)
+        resolve(mockVehicleData)
       })
     }));
 
     const wrapper = await shallow(<App />);
-    const result = mockCleanVehicleData;
+    const resultArray = mockCleanVehicleData;
 
     wrapper.instance().saveFavorite(...mockCleanVehicleData);
 
-    expect(wrapper.state().favorites).toEqual(result);
+    expect(wrapper.state().favorites).toEqual(resultArray);
+    expect(resultArray[0].favorited).toEqual(true);
   });
 
   it('should remove duplicate objects from the favorites array', async () => {

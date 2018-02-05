@@ -27,7 +27,7 @@ class App extends Component {
 
   getRandomFilmData = async () => {
     const films = await apiGet('films');
-    const randomNum = Math.floor(Math.random() * 7 + 1);
+    const randomNum = Math.floor(Math.random() * films.length);
 
     this.setState({ film: films[randomNum] });
   }
