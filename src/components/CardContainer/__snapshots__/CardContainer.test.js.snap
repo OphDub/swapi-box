@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CARD CONTAINER should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CardContainer
+    data={
+        Array [
+            Object {
+              "count": 61,
+              "next": "https://swapi.co/api/planets/?page=2",
+              "previous": null,
+              "results": Array [
+                Object {
+                  "climate": "temperate",
+                  "created": "2014-12-10T11:35:48.479000Z",
+                  "diameter": "12500",
+                  "edited": "2014-12-20T20:58:18.420000Z",
+                  "films": Array [
+                    "https://swapi.co/api/films/6/",
+                    "https://swapi.co/api/films/1/",
+                  ],
+                  "gravity": "1 standard",
+                  "name": "Alderaan",
+                  "orbital_period": "364",
+                  "population": "2000000000",
+                  "residents": Array [
+                    "https://swapi.co/api/people/5/",
+                    "https://swapi.co/api/people/68/",
+                    "https://swapi.co/api/people/81/",
+                  ],
+                  "rotation_period": "24",
+                  "surface_water": "40",
+                  "terrain": "grasslands, mountains",
+                  "url": "https://swapi.co/api/planets/2/",
+                },
+              ],
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Card
+          element={
+                    Object {
+                              "count": 61,
+                              "next": "https://swapi.co/api/planets/?page=2",
+                              "previous": null,
+                              "results": Array [
+                                Object {
+                                  "climate": "temperate",
+                                  "created": "2014-12-10T11:35:48.479000Z",
+                                  "diameter": "12500",
+                                  "edited": "2014-12-20T20:58:18.420000Z",
+                                  "films": Array [
+                                    "https://swapi.co/api/films/6/",
+                                    "https://swapi.co/api/films/1/",
+                                  ],
+                                  "gravity": "1 standard",
+                                  "name": "Alderaan",
+                                  "orbital_period": "364",
+                                  "population": "2000000000",
+                                  "residents": Array [
+                                    "https://swapi.co/api/people/5/",
+                                    "https://swapi.co/api/people/68/",
+                                    "https://swapi.co/api/people/81/",
+                                  ],
+                                  "rotation_period": "24",
+                                  "surface_water": "40",
+                                  "terrain": "grasslands, mountains",
+                                  "url": "https://swapi.co/api/planets/2/",
+                                },
+                              ],
+                            }
+          }
+          saveFavorite={undefined}
+          type={undefined}
+/>,
+      ],
+      "className": "card-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "15177939290990",
+        "nodeType": "function",
+        "props": Object {
+          "element": Object {
+            "count": 61,
+            "next": "https://swapi.co/api/planets/?page=2",
+            "previous": null,
+            "results": Array [
+              Object {
+                "climate": "temperate",
+                "created": "2014-12-10T11:35:48.479000Z",
+                "diameter": "12500",
+                "edited": "2014-12-20T20:58:18.420000Z",
+                "films": Array [
+                  "https://swapi.co/api/films/6/",
+                  "https://swapi.co/api/films/1/",
+                ],
+                "gravity": "1 standard",
+                "name": "Alderaan",
+                "orbital_period": "364",
+                "population": "2000000000",
+                "residents": Array [
+                  "https://swapi.co/api/people/5/",
+                  "https://swapi.co/api/people/68/",
+                  "https://swapi.co/api/people/81/",
+                ],
+                "rotation_period": "24",
+                "surface_water": "40",
+                "terrain": "grasslands, mountains",
+                "url": "https://swapi.co/api/planets/2/",
+              },
+            ],
+          },
+          "saveFavorite": undefined,
+          "type": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Card
+            element={
+                        Object {
+                                    "count": 61,
+                                    "next": "https://swapi.co/api/planets/?page=2",
+                                    "previous": null,
+                                    "results": Array [
+                                      Object {
+                                        "climate": "temperate",
+                                        "created": "2014-12-10T11:35:48.479000Z",
+                                        "diameter": "12500",
+                                        "edited": "2014-12-20T20:58:18.420000Z",
+                                        "films": Array [
+                                          "https://swapi.co/api/films/6/",
+                                          "https://swapi.co/api/films/1/",
+                                        ],
+                                        "gravity": "1 standard",
+                                        "name": "Alderaan",
+                                        "orbital_period": "364",
+                                        "population": "2000000000",
+                                        "residents": Array [
+                                          "https://swapi.co/api/people/5/",
+                                          "https://swapi.co/api/people/68/",
+                                          "https://swapi.co/api/people/81/",
+                                        ],
+                                        "rotation_period": "24",
+                                        "surface_water": "40",
+                                        "terrain": "grasslands, mountains",
+                                        "url": "https://swapi.co/api/planets/2/",
+                                      },
+                                    ],
+                                  }
+            }
+            saveFavorite={undefined}
+            type={undefined}
+/>,
+        ],
+        "className": "card-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "15177939290990",
+          "nodeType": "function",
+          "props": Object {
+            "element": Object {
+              "count": 61,
+              "next": "https://swapi.co/api/planets/?page=2",
+              "previous": null,
+              "results": Array [
+                Object {
+                  "climate": "temperate",
+                  "created": "2014-12-10T11:35:48.479000Z",
+                  "diameter": "12500",
+                  "edited": "2014-12-20T20:58:18.420000Z",
+                  "films": Array [
+                    "https://swapi.co/api/films/6/",
+                    "https://swapi.co/api/films/1/",
+                  ],
+                  "gravity": "1 standard",
+                  "name": "Alderaan",
+                  "orbital_period": "364",
+                  "population": "2000000000",
+                  "residents": Array [
+                    "https://swapi.co/api/people/5/",
+                    "https://swapi.co/api/people/68/",
+                    "https://swapi.co/api/people/81/",
+                  ],
+                  "rotation_period": "24",
+                  "surface_water": "40",
+                  "terrain": "grasslands, mountains",
+                  "url": "https://swapi.co/api/planets/2/",
+                },
+              ],
+            },
+            "saveFavorite": undefined,
+            "type": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

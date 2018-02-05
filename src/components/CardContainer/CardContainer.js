@@ -1,5 +1,5 @@
 import React from 'react';
-import './CardContainer.scss';
+import './CardContainer.css';
 import Card from '../Card/Card';
 import { string, object, func, arrayOf } from 'prop-types';
 

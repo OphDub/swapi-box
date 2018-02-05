@@ -116,7 +116,8 @@ export const mockCleanPlanetData = [
       undefined,
       undefined,
       undefined
-    ]
+    ],
+    "favorited": false,
   }
 ]
 
@@ -166,6 +167,7 @@ export const mockCleanPeopleData = [
     homeworld: undefined,
     population: undefined,
     species: [undefined],
+    "favorited": false,
   }
 ]
 
@@ -200,9 +202,10 @@ export const mockVehicleData = {
 
 export const mockCleanVehicleData = [
   {
-    "name": "Sand Crawler", 
-    "model": "Digger Crawler", 
-    "passengers": "30", 
-    "class": "wheeled", 
+    "name": "Sand Crawler",
+    "model": "Digger Crawler",
+    "passengers": "30",
+    "class": "wheeled",
+    "favorited": false,
   }
 ]

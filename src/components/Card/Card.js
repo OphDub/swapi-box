@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.scss';
+import './Card.css';
 import { object, func } from 'prop-types';
 
 const Card = ({ type, element, saveFavorite }) => {
@@ -20,8 +20,8 @@ const Card = ({ type, element, saveFavorite }) => {
   });
 
   return (
-    <article className={type}>
-      <div>
+    <article className="card">
+      <div className={type}>
         <h3>{element.name}</h3>
         <button onClick={() => saveFavorite(element)}
                 className={cardClass}>

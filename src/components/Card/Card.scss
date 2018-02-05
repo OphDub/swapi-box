@@ -1,0 +1,38 @@
+.card {
+  border: yellow solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorited {
+  background-color: magenta;
+}
+
+.favorites {
+  background-color: magenta;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.people {
+  border: purple solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.planets {
+  border: blue solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vehicles {
+  border: green solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
