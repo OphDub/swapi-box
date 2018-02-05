@@ -60,7 +60,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": "15178080550400",
+        "key": "15178606923720",
         "nodeType": "function",
         "props": Object {
           "element": Object {
@@ -117,7 +117,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": "15178080550400",
+          "key": "15178606923720",
           "nodeType": "function",
           "props": Object {
             "element": Object {
