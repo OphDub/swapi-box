@@ -15,6 +15,20 @@ import {
 } from '../mock-data';
 
 describe('APP', () => {
+  beforeEach(() => {
+    global.localStorage = {
+      getItem(keyword) {
+        if (!global.localStorage[keyword]) {
+          return null;
+        }
+        return JSON.stringify(global.localStorage[keyword]);
+      },
+      setItem(keyword, value) {
+        global.localStorage[keyword] = value;
+      }
+    };
+  });
+
   it('should match the snapshot', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
@@ -48,8 +62,20 @@ describe('APP', () => {
     expect(wrapper.state().favorites).toEqual(emptyArray);
   });
 
-  it('should choose a random object from an array upon mounting', () => {
-    
+  it('should fill the film object in state when it mounts', async () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => new Promise((resolve, reject) => {
+        resolve(mockFilmData)
+      })
+    }));
+
+    const wrapper = await shallow(<App />);
+    await wrapper.instance().componentDidMount();
+
+    const result = mockCleanFilmData
+
+    expect(wrapper.state().film).toEqual(...result);
   });
 
   it('should be able to getData', async () => {
@@ -64,9 +90,9 @@ describe('APP', () => {
     const expectedDataType = 'vehicles';
     const expectedResult = mockCleanVehicleData;
 
-    wrapper.instance().getData(expectedDataType);
+    await wrapper.instance().getData(expectedDataType);
 
-    expect(wrapper.state().expectedDataType).toEqual(expectedResult);
+    expect(wrapper.state().vehicles).toEqual(expectedResult);
   });
 
   it('should save objects to the favorites array and change their favorited status to true', async () => {

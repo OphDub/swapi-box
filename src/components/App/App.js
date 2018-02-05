@@ -18,16 +18,14 @@ class App extends Component {
   }
 
   getData = async (request) => {
-    const data = await apiGet(request);
+    if (!localStorage[request]) {
+      const data = await apiGet(request);
+      this.setState({ [request]: data });
+      await localStorage.setItem(request, JSON.stringify(data));
+    }
 
+    const data = JSON.parse(localStorage.getItem(request));
     this.setState({ [request]: data });
-    // if(!localStorage[request]) {
-    //   const data = await apiGet(request);
-    //   await localStorage.setItem(request, JSON.stringify(data))
-    // }
-
-    // const data = JSON.parse(localStorage.getItem(request))
-    // this.setState({ [request]: data });
   }
 
   getRandomFilmData = async () => {
@@ -52,8 +50,8 @@ class App extends Component {
     this.setState({ favorites: newFaves });
   }
 
-  componentDidMount () {
-    this.getRandomFilmData();
+  async componentDidMount () {
+    await this.getRandomFilmData();
   }
 
   render() {
