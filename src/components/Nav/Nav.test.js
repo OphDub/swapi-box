@@ -11,6 +11,11 @@ describe('NAV', () => {
   });
 
   it('has buttons which should call getData on click', () => {
+    const mockFn = jest.fn();
+    const wrapper = shallow(<Nav getData={mockFn}/>);
 
+    wrapper.find('button').first().simulate('click');
+
+    expect(mockFn.mock.calls.length).toEqual(1);
   });
 });
