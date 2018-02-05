@@ -1,0 +1,11 @@
+.loading-vehicles {
+  background-image: url("https://i.imgur.com/JSRLHzR.gif");
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 250px; }
+
+.loading-planets {
+  background-image: url("http://www.lasertimepodcast.com/wp-content/uploads/2015/03/anime-star-wars-laser-time.gif");
+  background-repeat: no-repeat;
+  width: 720px;
+  height: 405px; }

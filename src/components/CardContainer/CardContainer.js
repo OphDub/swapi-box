@@ -7,7 +7,11 @@ const CardContainer = ({ type, data, saveFavorite }) => {
   let renderedCards;
 
   if (data.length === 0) {
-    renderedCards = (<h3 className={type}> No {type} to show </h3>);
+    renderedCards = (
+      <div className={`loading-${type}`}>
+        <h3> No {type} to show </h3>
+      </div>
+    );
   } else {
     renderedCards = data.map((element, index) => {
       return (
