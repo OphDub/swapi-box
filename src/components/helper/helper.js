@@ -64,6 +64,7 @@ const cleanPeopleData = (peopleData) => {
       name: person.name,
       ...homeworld,
       species: speciesTypes,
+      favorited: false,
     };
   });
   return Promise.all(people);
@@ -76,6 +77,7 @@ const cleanVehicleData = (vehicleData) => {
       model: vehicle.model,
       passengers: vehicle.passengers,
       class: vehicle.vehicle_class,
+      favorited: false,
     };
   });
 };
@@ -90,6 +92,7 @@ const cleanPlanetData = (planetData) => {
       terrain: planet.terrain,
       population: planet.population,
       residents: residents,
+      favorited: false,
     };
   });
 

@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CARD should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    element={
+        Object {
+            "class": "wheeled",
+            "favorited": false,
+            "model": "Digger Crawler",
+            "name": "Sand Crawler",
+            "passengers": "30",
+          }
+    }
+    saveFavorite={[Function]}
+    type="vehicle"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="vehicle"
+>
+          <h3>
+                    Sand Crawler
+          </h3>
+          <button
+                    className=""
+                    onClick={[Function]}
+          >
+                    Favorite
+          </button>
+</div>,
+        <ul>
+          <li>
+                    model
+                    : 
+                    Digger Crawler
+          </li>
+          <li>
+                    passengers
+                    : 
+                    30
+          </li>
+          <li>
+                    class
+                    : 
+                    wheeled
+          </li>
+</ul>,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Sand Crawler
+</h3>,
+            <button
+              className=""
+              onClick={[Function]}
+>
+              Favorite
+</button>,
+          ],
+          "className": "vehicle",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sand Crawler",
+            },
+            "ref": null,
+            "rendered": "Sand Crawler",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Favorite",
+              "className": "",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Favorite",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li>
+              model
+              : 
+              Digger Crawler
+</li>,
+            <li>
+              passengers
+              : 
+              30
+</li>,
+            <li>
+              class
+              : 
+              wheeled
+</li>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "15178154838610",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "model",
+                ": ",
+                "Digger Crawler",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "model",
+              ": ",
+              "Digger Crawler",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "15178154838621",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "passengers",
+                ": ",
+                "30",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "passengers",
+              ": ",
+              "30",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "15178154838622",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "class",
+                ": ",
+                "wheeled",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "class",
+              ": ",
+              "wheeled",
+            ],
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+    ],
+    "type": "article",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="vehicle"
+>
+            <h3>
+                        Sand Crawler
+            </h3>
+            <button
+                        className=""
+                        onClick={[Function]}
+            >
+                        Favorite
+            </button>
+</div>,
+          <ul>
+            <li>
+                        model
+                        : 
+                        Digger Crawler
+            </li>
+            <li>
+                        passengers
+                        : 
+                        30
+            </li>
+            <li>
+                        class
+                        : 
+                        wheeled
+            </li>
+</ul>,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Sand Crawler
+</h3>,
+              <button
+                className=""
+                onClick={[Function]}
+>
+                Favorite
+</button>,
+            ],
+            "className": "vehicle",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sand Crawler",
+              },
+              "ref": null,
+              "rendered": "Sand Crawler",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Favorite",
+                "className": "",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Favorite",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li>
+                model
+                : 
+                Digger Crawler
+</li>,
+              <li>
+                passengers
+                : 
+                30
+</li>,
+              <li>
+                class
+                : 
+                wheeled
+</li>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "15178154838610",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "model",
+                  ": ",
+                  "Digger Crawler",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "model",
+                ": ",
+                "Digger Crawler",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "15178154838621",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "passengers",
+                  ": ",
+                  "30",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "passengers",
+                ": ",
+                "30",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "15178154838622",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "class",
+                  ": ",
+                  "wheeled",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "class",
+                ": ",
+                "wheeled",
+              ],
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+      ],
+      "type": "article",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

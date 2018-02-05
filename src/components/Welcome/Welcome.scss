@@ -1,48 +1,40 @@
-body {
-  min-width: 100%;
-  min-height: 100%;
-  overflow: hidden;
-}
-
-.fade {
-  position: relative;
-  width: 100%;
-  min-height: 60vh;
-  top: -25px;
-  background-image: linear-gradient(0deg, transparent, black 75%);
-  z-index: 1;
-}
-
 .star-wars {
-  display: flex;
+  background-image: linear-gradient(transparent, #000000 70%),
+    url("https://media.contentapi.ea.com/content/dam/walrus/news-article-images/november/header_phasma_social.jpg.img.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  overflow: hidden;
   justify-content: center;
   position: relative;
-  height: 800px;
+  height: 500px;
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
-  font-size: 500%;
+  font-size: 150%;
   font-weight: 600;
   letter-spacing: 6px;
   line-height: 150%;
-  perspective: 400px;
+  perspective: 200px;
   text-align: justify;
 }
 
 .crawl {
   position: relative;
-  top: 9999px;
+  top: -1000px;
   transform-origin: 50% 100%;
-  animation: crawl 60s linear;
+  animation: crawl 160s linear;
 }
 
 
 @keyframes crawl {
   0% {
     top: 0;
-    transform: rotateX(20deg)  translateZ(0);
+    transform: rotateX(10deg)  translateZ(0);
   }
-  100% { 
+  100% {
     top: -6000px;
-    transform: rotateX(25deg) translateZ(-2500px);
+    transform: rotateX(10deg) translateZ(-2500px);
   }
 }

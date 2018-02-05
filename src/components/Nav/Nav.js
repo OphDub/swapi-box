@@ -1,19 +1,26 @@
 import React from 'react';
+import './Nav.css';
 import { NavLink } from 'react-router-dom';
 import { func } from 'prop-types';
 
 const Nav = ({ getData }) => {
   return (
     <nav>
-      <button onClick={() => getData('people')}>
-        <NavLink to='/people'>People</NavLink>
-      </button>
-      <button onClick={() => getData('planets')}>
-        <NavLink to='/planets'>Planets</NavLink>
-      </button>
-      <button onClick={() => getData('vehicles')}>
-        <NavLink to='/vehicles'>Vehicles</NavLink>
-      </button>
+      <NavLink to='/people'>
+        <button onClick={() => getData('people')}>
+          People
+        </button>
+      </NavLink>
+      <NavLink to='/planets'>
+        <button onClick={() => getData('planets')}>
+          Planets
+        </button>
+      </NavLink>
+      <NavLink to='/vehicles'>
+        <button onClick={() => getData('vehicles')}>
+          Vehicles
+        </button>
+      </NavLink>
     </nav>
   );
 };
