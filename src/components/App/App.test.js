@@ -53,7 +53,19 @@ describe('APP', () => {
   });
 
   it('should be able to getData', () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => new Promise((resolve, reject) => {
+        resolve(mockFilmData)
+      })
+    }));
+    const wrapper = await shallow(<App />);
+    const expectedDataType = 'films';
+    const expectedResult = ...mockCleanFilmData;
 
+    wrapper.instance().getData(expectedDataType);
+
+    expect(wrapper.state.film).toEqual(expectedResult);
   });
 
   it('should save objects to the favorites array and change their favorited status to true', async () => {
