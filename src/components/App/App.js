@@ -57,11 +57,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header>
+        <header className="swapi-header">
           <h1 className="swapi-title">SWAPI BOX</h1>
           <NavLink to="/favorites">
             <button className="faves">
-                Favorites
+              <h4 className="faves-header">Favorites</h4>
               <div className="fave-count">
                 {this.state.favorites.length}
               </div>
