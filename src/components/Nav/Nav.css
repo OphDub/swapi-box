@@ -15,8 +15,7 @@ button {
   padding: 0.75em 2em; }
 
 button:hover {
-  border: #41b9e1 2px solid;
-  color: #41b9e1; }
+  background: #41b9e1; }
 
 input[type=checkbox] {
   display: none; }
@@ -26,7 +25,7 @@ input[type=checkbox]:checked ~ .remove-check {
 
 .btn {
   background: none;
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   cursor: pointer;
   display: none;
   text-align: center;
@@ -35,7 +34,7 @@ input[type=checkbox]:checked ~ .remove-check {
   text-decoration: none; }
 
 .btn:hover {
-  background: #006582; }
+  background: #41b9e1; }
 
 @media (max-width: 400px) {
   .nav-section {
@@ -44,6 +43,8 @@ input[type=checkbox]:checked ~ .remove-check {
     display: none; }
   .nav-category-links {
     display: block; }
+  .nav-category-btns {
+    width: 100%; }
   .btn {
     display: inline-block; }
   input[type=checkbox]:checked ~ #nav-category {
