@@ -31,3 +31,7 @@
   100% {
     top: -6000px;
     transform: rotateX(10deg) translateZ(-2500px); } }
+
+@media (max-width: 400px) {
+  .crawl {
+    transform-origin: 50% 25%; } }
