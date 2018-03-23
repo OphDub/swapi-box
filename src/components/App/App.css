@@ -4,7 +4,8 @@ html {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  background: #000000; }
 
 body {
   height: 100%;
@@ -14,11 +15,11 @@ body {
 
 #root {
   min-height: 100%;
-  background-color: magenta;
+  background-color: #000000;
   display: flex; }
 
 .app {
-  color: white;
+  color: #ffffff;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -37,10 +38,23 @@ body {
   display: flex;
   align-self: center;
   font-family: 'Righteous', cursive;
-  margin: 20px; }
+  margin: 20px 0 20px 20px; }
+
+.swapi-logo {
+  width: 23px;
+  height: 23px; }
 
 .swapi-title-navlink {
-  text-decoration: none; }
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.swapi-title-navlink:visited {
+  color: #FFFFFF; }
+
+.swapi-title-navlink:hover {
+  color: #41b9e1; }
 
 .faves {
   margin: 20px;

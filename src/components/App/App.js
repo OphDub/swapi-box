@@ -59,7 +59,10 @@ class App extends Component {
       <div className="app">
         <header className="swapi-header">
           <NavLink to="/" className="swapi-title-navlink">
-            <h1 className="swapi-title">SWAPI BOX</h1>
+            <h1 className="swapi-title">
+              SWAPI
+              B<span><img className="swapi-logo" src="http://www.iconsplace.com/download/white-death-star-256.ico" alt="death star logo"/></span>X
+            </h1>
           </NavLink>
           <NavLink to="/favorites">
             <button className="faves">
