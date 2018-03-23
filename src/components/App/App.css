@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous|Roboto');
-
+@import url("https://fonts.googleapis.com/css?family=Righteous|Roboto");
 html {
   height: 100%;
   width: 100%;
@@ -28,7 +27,7 @@ body {
   padding: 0px;
   flex: 1; }
 
-header {
+.swapi-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -40,34 +39,28 @@ header {
   font-family: 'Righteous', cursive;
   margin: 20px; }
 
+.swapi-title-navlink {
+  text-decoration: none; }
+
 .faves {
   margin: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .faves-header {
   padding: 0px;
-  margin: 0px;
-}
+  margin: 0px; }
 
 .fave-count {
-  margin-left: 10px;
-}
+  margin-left: 10px; }
 
 @media (max-width: 500px) {
   .swapi-title {
-    margin: 10px 10px 0;
-  }
-
+    margin: 10px 10px 0; }
   .swapi-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
+    align-items: center; }
   .faves {
-    margin: 15px;
-  }
-}
+    margin: 15px; } }

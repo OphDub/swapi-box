@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous|Roboto');
+
 html {
   height: 100%;
   width: 100%;
   margin: 0px;
   padding: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -29,14 +32,52 @@ body {
   flex: 1;
 }
 
-header {
+.swapi-header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 }
 
 .swapi-title {
   display: flex;
   align-self: center;
+  font-family: 'Righteous', cursive;
+  margin: 20px;
+}
+
+.swapi-title-navlink {
+  text-decoration: none;
+}
+
+.faves {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.faves-header {
+  padding: 0px;
+  margin: 0px;
+}
+
+.fave-count {
+  margin-left: 10px;
+}
+
+@media (max-width: 500px) {
+  .swapi-title {
+    margin: 10px 10px 0;
+  }
+
+  .swapi-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faves {
+    margin: 15px;
+  }
 }

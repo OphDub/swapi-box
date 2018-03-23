@@ -58,7 +58,9 @@ class App extends Component {
     return (
       <div className="app">
         <header className="swapi-header">
-          <h1 className="swapi-title">SWAPI BOX</h1>
+          <NavLink to="/" className="swapi-title-navlink">
+            <h1 className="swapi-title">SWAPI BOX</h1>
+          </NavLink>
           <NavLink to="/favorites">
             <button className="faves">
               <h4 className="faves-header">Favorites</h4>
