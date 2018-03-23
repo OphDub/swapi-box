@@ -1,3 +1,12 @@
+.nav-section {
+  display: flex;
+  flex-direction: column; }
+
+.nav-category {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%; }
+
 button {
   border: #FFFFFF 2px solid;
   color: #FFFFFF;
@@ -8,3 +17,34 @@ button {
 button:hover {
   border: #41b9e1 2px solid;
   color: #41b9e1; }
+
+input[type=checkbox] {
+  display: none; }
+
+input[type=checkbox]:checked ~ .remove-check {
+  display: none; }
+
+.btn {
+  background: none;
+  border: 1px solid #FFFFFF;
+  cursor: pointer;
+  display: none;
+  text-align: center;
+  margin: 0;
+  padding: 10px 20px 11px;
+  text-decoration: none; }
+
+.btn:hover {
+  background: #006582; }
+
+@media (max-width: 400px) {
+  .nav-section {
+    width: 160px; }
+  #nav-category {
+    display: none; }
+  .nav-category-links {
+    display: block; }
+  .btn {
+    display: inline-block; }
+  input[type=checkbox]:checked ~ #nav-category {
+    display: block; } }
