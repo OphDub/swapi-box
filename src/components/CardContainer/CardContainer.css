@@ -1,20 +1,29 @@
+.loading-planets,
 .loading-vehicles {
-  background-image: url("https://i.imgur.com/JSRLHzR.gif");
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif");
   background-repeat: no-repeat;
-  width: 500px;
-  height: 250px;
-  display: flex;
-  align-content: center; }
-
-.loading-planets {
-  background-image: url("http://www.lasertimepodcast.com/wp-content/uploads/2015/03/anime-star-wars-laser-time.gif");
-  background-repeat: no-repeat;
+  background-position: center;
   width: 720px;
   height: 405px;
   display: flex;
-  align-content: center; }
+  align-content: center;
+  justify-content: center; }
 
 .card-container {
+  background-image: url("http://flashwallpapers.com/wp-content/uploads/2015/07/Darth-Vader-2-1024x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+  height: 100vh; }
+
+@media (max-width: 700px) {
+  .card-container {
+    background-image: url("http://flashwallpapers.com/wp-content/uploads/2015/07/Darth-Vader-2-1024x768.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 100vh; } }
