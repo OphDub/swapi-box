@@ -16,7 +16,7 @@ const Card = ({ type, element, saveFavorite }) => {
 
     return (
       <li key={`${Date.now()}${index}`}>
-        {key}: {info}
+        <span className="card-li">{key}</span>: {info}
       </li>
     );
   });
@@ -30,7 +30,7 @@ const Card = ({ type, element, saveFavorite }) => {
           Favorite
         </button>
       </div>
-      <ul>
+      <ul className="card-info">
         {list}
       </ul>
     </article>

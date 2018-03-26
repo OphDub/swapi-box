@@ -57,11 +57,16 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header>
-          <h1 className="swapi-title">SWAPI BOX</h1>
+        <header className="swapi-header">
+          <NavLink to="/" className="swapi-title-navlink">
+            <h1 className="swapi-title">
+              SWAPI
+              B<span><img className="swapi-logo" src="http://www.iconsplace.com/download/white-death-star-256.ico" alt="death star logo"/></span>X
+            </h1>
+          </NavLink>
           <NavLink to="/favorites">
             <button className="faves">
-                Favorites
+              <h4 className="faves-header">Favorites</h4>
               <div className="fave-count">
                 {this.state.favorites.length}
               </div>
