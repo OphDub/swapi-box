@@ -1,6 +1,6 @@
 .loading-planets,
 .loading-vehicles {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif");
+  background-image: linear-gradient(transparent, #000000 70%), url("https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif");
   background-repeat: no-repeat;
   background-position: center;
   width: 720px;
@@ -11,24 +11,24 @@
 }
 
 .card-container {
-  background-image: url("http://flashwallpapers.com/wp-content/uploads/2015/07/Darth-Vader-2-1024x768.jpg");
+  background-image: linear-gradient(transparent, #000000 70%), url("http://flashwallpapers.com/wp-content/uploads/2015/07/Darth-Vader-2-1024x768.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  height: 100vh;
+  height: 90%;
+  width: 100%;
 }
 
 @media (max-width: 700px) {
   .card-container {
-    background-image: url("http://flashwallpapers.com/wp-content/uploads/2015/07/Darth-Vader-2-1024x768.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
-    height: 100vh;
   }
 }
 
